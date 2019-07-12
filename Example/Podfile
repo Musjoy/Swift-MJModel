@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MJModel_Example' do
+  pod 'MJModel', :path => '../'
+
+  target 'MJModel_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
