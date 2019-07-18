@@ -118,7 +118,12 @@ extension Model  {
             }
             
             // 属性转化
-            let newValue = _anyConvertToType(aValue!, aType: aProperty.type)
+            var newValue : Any?
+            if type(of: aValue!) == aProperty.type {
+                newValue = aValue!
+            } else {
+                newValue = _anyConvertToType(aValue!, aType: aProperty.type)
+            }
             if newValue == nil {
                 continue
             }

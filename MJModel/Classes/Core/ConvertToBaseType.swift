@@ -48,6 +48,9 @@ extension Optional : _ConvertToBaseType {
 // MARK: - 数组
 extension Array : _ConvertToBaseType {
     func _convertToBaseType() -> Any? {
+        if Element.self is _BaseType.Type {
+            return self
+        }
         var newArr = [Any]();
         for item in self {
             if item is _BaseType {
@@ -84,6 +87,9 @@ extension NSArray : _ConvertToBaseType {
 // MARK: - 字典
 extension Dictionary : _ConvertToBaseType {
     func _convertToBaseType() -> Any? {
+        if Value.self is _BaseType.Type {
+            return self
+        }
         var newDic = [String : Any]();
         for item in self {
             guard let key = item.key as? String else {

@@ -9,6 +9,9 @@ import Foundation
 
 /// 通用将Any转为指定类型
 func _anyConvertToType(_ data : Any, aType : Any.Type) -> Any? {
+    if type(of: data) == aType {
+        return data
+    }
     var newValue : Any? = nil
     if (aType is Model.Type) {
         newValue = (aType as! Model.Type).convert(from : data)
