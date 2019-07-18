@@ -1,0 +1,18 @@
+PODS:
+  - MJModel (0.1.0):
+    - MJModel/Core (= 0.1.0)
+  - MJModel/Core (0.1.0)
+
+DEPENDENCIES:
+  - MJModel (from `../`)
+
+EXTERNAL SOURCES:
+  MJModel:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MJModel: ab2580ee2ae7b370291c3615f51e3e58f450e0bc
+
+PODFILE CHECKSUM: 7bf0786271c449602f8f6af453d1eb104ea02e9a
+
+COCOAPODS: 1.7.3

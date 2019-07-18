@@ -12,7 +12,6 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		D7E2980A5BC1B1971960F228 /* Pods_MJModel_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39FAAEBA363A2B606D54850B /* Pods_MJModel_Example.framework */; };
 		FC0B98D3B0E1EEB443DF46A0 /* Pods_MJModel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17DC445CB6DE05F7B9CDE51 /* Pods_MJModel_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -40,13 +39,12 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* MJModel_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MJModel_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		66F625675CFF7951B51AAEDB /* MJModel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = MJModel.podspec; path = ../MJModel.podspec; sourceTree = "<group>"; };
+		66F625675CFF7951B51AAEDB /* MJModel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MJModel.podspec; path = ../MJModel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		87A7A1DD5B681B98FE11DF6C /* Pods-MJModel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJModel_Tests.release.xcconfig"; path = "Target Support Files/Pods-MJModel_Tests/Pods-MJModel_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		99FCB53A582DCA4CC1DAF45C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		99FCB53A582DCA4CC1DAF45C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B46EA423DBBC3DCF620538BD /* Pods-MJModel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJModel_Tests.debug.xcconfig"; path = "Target Support Files/Pods-MJModel_Tests/Pods-MJModel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F17DC445CB6DE05F7B9CDE51 /* Pods_MJModel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MJModel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F55C528E27BC2E1E035A4716 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F55C528E27BC2E1E035A4716 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +113,6 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -147,7 +144,6 @@
 				B46EA423DBBC3DCF620538BD /* Pods-MJModel_Tests.debug.xcconfig */,
 				87A7A1DD5B681B98FE11DF6C /* Pods-MJModel_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +223,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -340,7 +337,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
