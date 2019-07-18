@@ -56,8 +56,8 @@ extension Optional : _AnyConvertibleTo {
 }
 
 // MARK: - 字符串类型
-protocol AnyConvertibleToString : _AnyConvertibleTo {}
-extension AnyConvertibleToString {
+protocol _AnyConvertibleToString : _AnyConvertibleTo {}
+extension _AnyConvertibleToString {
     static func _convert(from object: Any) -> Self? {
         if object is NSNumber {
             return (object as! NSNumber).stringValue as? Self
@@ -66,8 +66,8 @@ extension AnyConvertibleToString {
         return newObject
     }
 }
-extension String : AnyConvertibleToString {}
-extension NSString : AnyConvertibleToString {}
+extension String : _AnyConvertibleToString {}
+extension NSString : _AnyConvertibleToString {}
 
 // MARK: - 数值
 extension NSNumber : _AnyConvertibleTo {

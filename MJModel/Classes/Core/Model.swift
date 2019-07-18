@@ -9,7 +9,7 @@ import Foundation
 
 
 // MARK: - Model
-/// 
+/// Base Model
 public protocol Model {
     /// 默认初始化方法
     init()
@@ -158,11 +158,11 @@ extension Model {
 extension Model {
     /// 读取对应属性
     func read(_ property:ModelProperty, on head:UnsafeMutablePointer<Int8>) -> Any? {
-        return theExtension(withType: property.type).read(from: (head.advanced(by: property.offset)))
+        return _theExtension(withType: property.type)._read(from: (head.advanced(by: property.offset)))
     }
     /// 写入对应属性
     func write(_ property:ModelProperty, with object: Any, on head:UnsafeMutablePointer<Int8>) {
-        theExtension(withType: property.type).write(object, to: head.advanced(by: property.offset))
+        _theExtension(withType: property.type)._write(object, to: head.advanced(by: property.offset))
     }
 }
 
@@ -170,16 +170,16 @@ extension Model {
 
 public extension Array where Element: Model {
     
-    func toDictionary() -> [Any] {
-        
+    /// [Model] To JsonObject
+    private func _toJSONObject() -> [Any] {
         return _convertAnyToBaseType(self) as! [Any]
     }
     
-    /// Model To JsonString
+    /// [Model] To JsonString
     func toJSONString() -> String? {
         
         // 先转数组
-        let arr = self.toDictionary()
+        let arr = self._toJSONObject()
         
         let jsonStr = JsonSerializer.jsonSting(from: arr);
         return jsonStr

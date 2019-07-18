@@ -23,12 +23,6 @@ struct ModelProperty {
     let offset: Int
     /// 内存占用尺寸
     let size: Int
-    /// 按步长内存长度
-    let stride: Int
-    /// 内存对齐步长
-    let alignment: Int
-    /// 是否可选<该值不可靠>
-    var isOptional : Bool = false
     
     init(item:Mirror.Child, offset:Int) {
         self.name = item.label!
@@ -38,20 +32,15 @@ struct ModelProperty {
             aType = (item.value as! NSObject).classForCoder
         }
         self.type = aType
-        let aExtension = theExtension(withType: aType)
-        self.size = aExtension.size()
-        self.stride = aExtension.stride()
-        self.alignment = aExtension.alignment()
-        let remainder = offset % self.alignment
+        let aExtension = _theExtension(withType: aType)
+        
+        self.size = aExtension._size()
+        let alignment = aExtension._alignment()
+        let remainder = offset % alignment
         if remainder == 0 {
             self.offset = offset
         } else {
-            self.offset = offset + (self.alignment - remainder)
-        }
-
-        if (String(reflecting: item.value)) == "nil" {
-            // 这个不可靠
-            self.isOptional = true
+            self.offset = offset + (alignment - remainder)
         }
     }
     
@@ -107,6 +96,12 @@ extension Model {
         var size : Int
         if Self.self is AnyClass {
             size = class_getInstanceSize(Self.self as? AnyClass)
+            // 这里有对齐, 相当于 stride，需要调整curOffset
+            let alignment = MemoryLayout<Self>.alignment
+            let remainder = curOffset % alignment
+            if remainder > 0 {
+                curOffset = curOffset + (alignment - remainder)
+            }
         } else {
             size = MemoryLayout<Self>.size
         }
@@ -114,6 +109,7 @@ extension Model {
             print("This model { \(Self.self) } contains field with 'Any' type! Please use specific type or user 'Any?' type")
         }
         
+        // 保存数据
         let typeFullName = Self._getTypeFullName()
         s_dicPropertyMaps[typeFullName] = dic
         s_dicPropertyLists[typeFullName] = arr
@@ -127,12 +123,14 @@ extension Model {
     /// 从镜像中遍历属性列表
     static func _propertiesFromMirror(_ mirror:Mirror, curOffset:inout Int, map:inout [String : ModelProperty]) -> [ModelProperty] {
         var arr = [ModelProperty]()
+        // 先读取父类属性列表
         if mirror.superclassMirror != nil {
             let arrSuper = Self._propertiesFromMirror(mirror.superclassMirror!, curOffset: &curOffset, map: &map)
             if !arrSuper.isEmpty {
                 arr += arrSuper
             }
         }
+        // 再遍历当前类的属性列表
         for item in mirror.children {
             if (item.label == nil) {
                 continue

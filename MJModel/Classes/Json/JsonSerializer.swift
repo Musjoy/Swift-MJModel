@@ -10,21 +10,22 @@ import Foundation
 /// JSON 解析器，提供基础类型的JSON转换
 public class JsonSerializer {
     
-    /// Json字符串转对象，JSON String -> Object(dic or arr)
+    /// JSON String -> Object(dic or arr)<Json字符串转对象>
     public static func jsonObject(from string: String) -> Any? {
         
-        guard let data = string.data(using: .utf8) else {return nil}
+        guard let data = string.data(using: .utf8) else { return nil }
 
         return self.jsonObject(from: data)
     }
     
+    /// JSON Data -> Object(dic or arr)<Json数据转对象>
     public static func jsonObject(from data: Data) -> Any? {
         
         do {
             let dict = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
             if dict is String {
                 // 这里有可能是普通字符串，系统默认也会转成功
-                throw NSError.init(domain: "MJModule.Json", code: -100, userInfo: [NSLocalizedDescriptionKey:"String is not object"])
+                return nil
             }
             return dict
         } catch {
@@ -33,7 +34,7 @@ public class JsonSerializer {
         }
     }
     
-    /// Json字符串转对象，JSON String -> Object(dic or arr)
+    /// Any -> Object(dic or arr)<任意类型转对象>
     public static func jsonSting(from object: Any) -> String? {
         
         do {
@@ -62,7 +63,6 @@ extension NSDictionary : JsonObjectToString {}
 extension NSArray : JsonObjectToString {}
 
 /// Json字符串转对象
-/// 扩展系统自带字符串
 public protocol JsonStringToObject {}
 extension JsonStringToObject {
     func toJSONObject() -> Any? {
