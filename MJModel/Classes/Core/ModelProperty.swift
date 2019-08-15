@@ -106,7 +106,7 @@ extension Model {
             size = MemoryLayout<Self>.size
         }
         if size != curOffset {
-            print("This model { \(Self.self) } contains field with 'Any' type! Please use specific type or user 'Any?' type")
+            print("This model { \(Self.self) } contains field with 'Any' type! Please use specific type or user 'Any!' or 'Any?' type")
         }
         
         // 保存数据
@@ -115,9 +115,8 @@ extension Model {
         s_dicPropertyLists[typeFullName] = arr
         if T.self is [String : Any].Type {
             return dic as! T
-        } else {
-            return arr as! T
         }
+        return arr as! T
     }
     
     /// 从镜像中遍历属性列表

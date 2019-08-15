@@ -1,0 +1,82 @@
+//
+//  BaseTypeTest.swift
+//  MJModel_Example
+//
+//  Created by 黄磊 on 2019/7/17.
+//  Copyright © 2019 CocoaPods. All rights reserved.
+//  继承类型测试
+
+import Foundation
+import XCTest
+import MJModel
+%{
+class_types = ['struct', 'class']
+}%
+
+%{ import csv }%
+% with open('base_types.csv') as base_types_file:
+%{
+# 从表格中读取
+base_types = []
+for row in csv.DictReader(base_types_file):
+    a_type = row["Type"]
+    if a_type :
+        base_types.append(a_type)
+}%
+
+% for a_class_type in class_types :
+${a_class_type} BaseType${a_class_type[:1].upper() + a_class_type[1:]} : Model {
+% for a_type  in base_types :
+    var ${a_type[:1].lower() + a_type[1:]} : ${a_type} = empertyValueForType(${a_type}.self)!
+    var ${a_type[:1].lower() + a_type[1:]}Optionl : ${a_type}?
+    var ${a_type[:1].lower() + a_type[1:]}Unwrapped : ${a_type}!
+    
+% end
+% if a_class_type == 'class' :
+    required init() {}
+% end
+}
+
+% end
+
+class _1_BaseTypeTest: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
+    // test base type one by one
+    % for a_class_type in class_types :
+    % for a_type  in base_types :
+    /// Test ${a_type} in ${a_class_type} to json string and convert back
+    func test${a_class_type[:1].upper() + a_class_type[1:]}${a_type}ToJson () {
+        
+        %{attr_name=a_type[:1].lower() + a_type[1:]}%
+        ${'let' if (a_class_type=='class') else 'var'} model = BaseType${a_class_type[:1].upper() + a_class_type[1:]}.init()
+        let aValue : ${a_type} = defaultValueForType(${a_type}.self)!
+        model.${attr_name} = aValue
+        model.${attr_name}Optionl = aValue
+        model.${attr_name}Unwrapped = aValue
+        
+        let jsonString = model.toJSONString();
+        let modelResult = BaseType${a_class_type[:1].upper() + a_class_type[1:]}.initWith(jsonString!)
+        
+        XCTAssertNotNil(jsonString)
+        XCTAssertNotNil(modelResult)
+        XCTAssertEqual(modelResult?.${attr_name}, aValue)
+        XCTAssertEqual(modelResult?.${attr_name}Optionl, aValue)
+        XCTAssertEqual(modelResult?.${attr_name}Unwrapped, aValue)
+        
+    }
+    
+    % end
+
+    % end
+
+}

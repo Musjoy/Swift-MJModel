@@ -22,9 +22,9 @@ public class JsonSerializer {
     public static func jsonObject(from data: Data) -> Any? {
         
         do {
-            let dict = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            let dict = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
             if dict is String {
-                // 这里有可能是普通字符串，系统默认也会转成功
+                // 这里有可能是普通字符串，系统默认也会转成功，已知的 "\"\"", 类似这种包含的字符串
                 return nil
             }
             return dict
@@ -38,9 +38,12 @@ public class JsonSerializer {
     public static func jsonSting(from object: Any) -> String? {
         
         do {
-            let data = try JSONSerialization.data(withJSONObject: object)
-            let dataStr = String(data: data, encoding: String.Encoding.utf8)
-            return dataStr
+            if JSONSerialization.isValidJSONObject(object) {
+                let data = try JSONSerialization.data(withJSONObject: object)
+                let dataStr = String(data: data, encoding: String.Encoding.utf8)
+                return dataStr
+            }
+            return nil
         } catch {
             print(error.localizedDescription)
             return nil
@@ -65,7 +68,7 @@ extension NSArray : JsonObjectToString {}
 /// Json字符串转对象
 public protocol JsonStringToObject {}
 extension JsonStringToObject {
-    func toJSONObject() -> Any? {
+    public func toJSONObject() -> Any? {
         let jsonObject = JsonSerializer.jsonObject(from: self as! String)
         return jsonObject
     }

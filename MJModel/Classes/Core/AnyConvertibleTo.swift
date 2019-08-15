@@ -45,13 +45,12 @@ extension Optional : _AnyConvertibleTo {
     static func _convert(from object: Any) -> Optional? {
         if let value = object as? Wrapped {
             return Optional(value)
-        } else {
-            let value = _anyConvertToType(object, aType: Wrapped.self) as? Wrapped
-            if value != nil {
-                return Optional(value!)
-            }
-            return nil
         }
+        let value = _anyConvertToType(object, aType: Wrapped.self) as? Wrapped
+        if value != nil {
+            return Optional(value!)
+        }
+        return nil
     }
 }
 
@@ -101,9 +100,7 @@ extension _AnyConvertibleToInt {
         } else if let num = object as? NSNumber {
             return Self(num.stringValue)
         }
-        
         let newObject = object as? Self
-        
         return newObject
     }
 }

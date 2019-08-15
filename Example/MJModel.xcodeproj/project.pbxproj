@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34C0680322FAE03C006A45F9 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34442D0E22F829BA0010A2E6 /* TestUtils.swift */; };
+		34C0680422FAE03C006A45F9 /* 1_BaseTypeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E9D7922E049AE00A214DA /* 1_BaseTypeTest.swift */; };
+		34C0680522FAE03C006A45F9 /* 1_EnumTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C142BD22F94238005FE4FA /* 1_EnumTest.swift */; };
+		34C0680622FAE03C006A45F9 /* 2_ContainerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F5714822F7FF0F0057EE2A /* 2_ContainerTest.swift */; };
+		34C0680722FAE03C006A45F9 /* 2_InheritTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34442D1022F83BF80010A2E6 /* 2_InheritTest.swift */; };
+		34C0680822FAE03C006A45F9 /* 3_AnyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C142C022F95BD4005FE4FA /* 3_AnyTest.swift */; };
+		34C0680922FAE03C006A45F9 /* 3_TypeMismatchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C067A822FA7212006A45F9 /* 3_TypeMismatchTest.swift */; };
+		34C0680A22FAE03C006A45F9 /* 3_OtherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C142C222F95BE3005FE4FA /* 3_OtherTest.swift */; };
+		34C0680B22FAE03C006A45F9 /* 4_ExceptionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C067E322FAD789006A45F9 /* 4_ExceptionTest.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -28,6 +37,25 @@
 
 /* Begin PBXFileReference section */
 		24B8B5F336114EBDE4184130 /* Pods-MJModel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJModel_Example.release.xcconfig"; path = "Target Support Files/Pods-MJModel_Example/Pods-MJModel_Example.release.xcconfig"; sourceTree = "<group>"; };
+		34442D0E22F829BA0010A2E6 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		34442D1022F83BF80010A2E6 /* 2_InheritTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2_InheritTest.swift; sourceTree = "<group>"; };
+		34794B5122FBD22C00BCC1FC /* 4_ExceptionTypeMismatchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4_ExceptionTypeMismatchTest.swift; sourceTree = "<group>"; };
+		34794B5322FBD29800BCC1FC /* 4_ExceptionTypeMismatchTest.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = 4_ExceptionTypeMismatchTest.swift.gyb; sourceTree = "<group>"; };
+		349E9D7922E049AE00A214DA /* 1_BaseTypeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 1_BaseTypeTest.swift; sourceTree = "<group>"; };
+		34C0678922F9737F006A45F9 /* 3_AnyTest.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3_AnyTest.swift.gyb; sourceTree = "<group>"; };
+		34C067A822FA7212006A45F9 /* 3_TypeMismatchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3_TypeMismatchTest.swift; sourceTree = "<group>"; };
+		34C067AA22FA723D006A45F9 /* 3_TypeMismatchTest.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3_TypeMismatchTest.swift.gyb; sourceTree = "<group>"; };
+		34C067AB22FA84FC006A45F9 /* mismatch_typs.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = mismatch_typs.csv; sourceTree = "<group>"; };
+		34C067E322FAD789006A45F9 /* 4_ExceptionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4_ExceptionTest.swift; sourceTree = "<group>"; };
+		34C142BD22F94238005FE4FA /* 1_EnumTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1_EnumTest.swift; sourceTree = "<group>"; };
+		34C142BF22F953B9005FE4FA /* 1_EnumTest.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1_EnumTest.swift.gyb; sourceTree = "<group>"; };
+		34C142C022F95BD4005FE4FA /* 3_AnyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3_AnyTest.swift; sourceTree = "<group>"; };
+		34C142C222F95BE3005FE4FA /* 3_OtherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3_OtherTest.swift; sourceTree = "<group>"; };
+		34F5714422F444080057EE2A /* 1_BaseTypeTest.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = 1_BaseTypeTest.swift.gyb; sourceTree = "<group>"; };
+		34F5714722F7E2470057EE2A /* base_types.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = base_types.csv; sourceTree = "<group>"; };
+		34F5714822F7FF0F0057EE2A /* 2_ContainerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2_ContainerTest.swift; sourceTree = "<group>"; };
+		34F5714B22F800A80057EE2A /* 2_ContainerTest.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = 2_ContainerTest.swift.gyb; sourceTree = "<group>"; };
+		34F5714C22F8015F0057EE2A /* container_types.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = container_types.csv; sourceTree = "<group>"; };
 		39FAAEBA363A2B606D54850B /* Pods_MJModel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MJModel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		528EB25FB0D61ACF24468FA2 /* Pods-MJModel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJModel_Example.debug.xcconfig"; path = "Target Support Files/Pods-MJModel_Example/Pods-MJModel_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MJModel_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJModel_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +141,25 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				34442D0E22F829BA0010A2E6 /* TestUtils.swift */,
+				349E9D7922E049AE00A214DA /* 1_BaseTypeTest.swift */,
+				34F5714422F444080057EE2A /* 1_BaseTypeTest.swift.gyb */,
+				34C142BD22F94238005FE4FA /* 1_EnumTest.swift */,
+				34C142BF22F953B9005FE4FA /* 1_EnumTest.swift.gyb */,
+				34F5714822F7FF0F0057EE2A /* 2_ContainerTest.swift */,
+				34F5714B22F800A80057EE2A /* 2_ContainerTest.swift.gyb */,
+				34442D1022F83BF80010A2E6 /* 2_InheritTest.swift */,
+				34C142C022F95BD4005FE4FA /* 3_AnyTest.swift */,
+				34C0678922F9737F006A45F9 /* 3_AnyTest.swift.gyb */,
+				34C067A822FA7212006A45F9 /* 3_TypeMismatchTest.swift */,
+				34C067AA22FA723D006A45F9 /* 3_TypeMismatchTest.swift.gyb */,
+				34C142C222F95BE3005FE4FA /* 3_OtherTest.swift */,
+				34C067E322FAD789006A45F9 /* 4_ExceptionTest.swift */,
+				34794B5122FBD22C00BCC1FC /* 4_ExceptionTypeMismatchTest.swift */,
+				34794B5322FBD29800BCC1FC /* 4_ExceptionTypeMismatchTest.swift.gyb */,
+				34F5714722F7E2470057EE2A /* base_types.csv */,
+				34F5714C22F8015F0057EE2A /* container_types.csv */,
+				34C067AB22FA84FC006A45F9 /* mismatch_typs.csv */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -182,10 +229,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "MJModel_Tests" */;
 			buildPhases = (
+				34F5714522F4448A0057EE2A /* Compile GYB */,
 				A58E34AB89CE084A0976FD4B /* [CP] Check Pods Manifest.lock */,
+				607FACE31AFB9204008FA782 /* Resources */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
-				607FACE31AFB9204008FA782 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -204,26 +252,25 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1100;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1100;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "MJModel" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -259,6 +306,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		34F5714522F4448A0057EE2A /* Compile GYB */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Compile GYB";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nfind . -name '*.gyb' |                                               \\\nwhile read file; do                                              \\\n    $HOME/bin/gyb --line-directive '' -o \"${file%.gyb}\" \"$file\"; \\\ndone\n";
+		};
 		50EA73A1F39A0F83D6B49689 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,6 +402,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34C0680922FAE03C006A45F9 /* 3_TypeMismatchTest.swift in Sources */,
+				34C0680B22FAE03C006A45F9 /* 4_ExceptionTest.swift in Sources */,
+				34C0680A22FAE03C006A45F9 /* 3_OtherTest.swift in Sources */,
+				34C0680822FAE03C006A45F9 /* 3_AnyTest.swift in Sources */,
+				34C0680622FAE03C006A45F9 /* 2_ContainerTest.swift in Sources */,
+				34C0680422FAE03C006A45F9 /* 1_BaseTypeTest.swift in Sources */,
+				34C0680322FAE03C006A45F9 /* TestUtils.swift in Sources */,
+				34C0680722FAE03C006A45F9 /* 2_InheritTest.swift in Sources */,
+				34C0680522FAE03C006A45F9 /* 1_EnumTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -382,12 +457,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -427,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -435,12 +513,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -480,7 +560,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -495,7 +575,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -516,7 +596,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MJModel_Example.app/MJModel_Example";
 			};
 			name = Debug;
@@ -534,7 +614,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MJModel_Example.app/MJModel_Example";
 			};
 			name = Release;

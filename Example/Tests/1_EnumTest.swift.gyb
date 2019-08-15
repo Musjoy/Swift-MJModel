@@ -1,0 +1,105 @@
+//
+//  EnumTest.swift
+//  MJModel_Example
+//
+//  Created by 黄磊 on 2019/7/17.
+//  Copyright © 2019 CocoaPods. All rights reserved.
+//  枚举类型测试
+
+import Foundation
+import XCTest
+import MJModel
+%{
+class_types = ['struct', 'class']
+enum_types = ['String', 'Int', 'Float', 'Double']
+}%
+
+% for a_type  in enum_types :
+enum Enum${a_type} : ${a_type}, ModelEnum {
+    case One
+    case Two
+}
+
+% end
+enum EnumRaw {
+    case One
+    case Two
+}
+
+extension EnumRaw: ModelEnum {
+    func convertToBaseType() -> Any? {
+        return String(describing: self)
+    }
+    
+    static func convert(from object: Any) -> EnumRaw? {
+        if let str = object as? String {
+            return str == "One" ? .One : .Two
+        } else if let num = object as? Int {
+            return num == 1 ? .One : .Two
+        }
+        return nil
+    }
+}
+
+
+% for a_class_type in class_types :
+${a_class_type} Enum${a_class_type[:1].upper() + a_class_type[1:]} : Model {
+% for a_type  in enum_types :
+    var enum${a_type} : Enum${a_type} = .One
+    var enum${a_type}Optionl : Enum${a_type}?
+    var enum${a_type}Unwrapped : Enum${a_type}!
+
+% end
+    var enumRaw : EnumRaw = .One
+    var enumRawOptionl : EnumRaw?
+    var enumRawUnwrapped : EnumRaw!
+    
+% if a_class_type == 'class' :
+    required init() {}
+% end
+}
+% end
+
+
+class _1_EnumTest: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
+    // test enum type one by one
+    %{enum_types.append('Raw')}%
+    % for a_class_type in class_types :
+    % for a_type  in enum_types :
+    /// Test Enum${a_type} in ${a_class_type} to json string and convert back
+    func test${a_class_type[:1].upper() + a_class_type[1:]}Enum${a_type}ToJson () {
+        
+        %{attr_name='enum' + a_type}%
+        ${'let' if (a_class_type=='class') else 'var'} model = Enum${a_class_type[:1].upper() + a_class_type[1:]}.init()
+        let aValue1 : Enum${a_type} = .One
+        let aValue2 : Enum${a_type} = .Two
+        model.${attr_name} = aValue1
+        model.${attr_name}Optionl = aValue2
+        model.${attr_name}Unwrapped = aValue1
+        
+        let jsonString = model.toJSONString();
+        let modelResult = Enum${a_class_type[:1].upper() + a_class_type[1:]}.initWith(jsonString!)
+        
+        XCTAssertNotNil(jsonString)
+        XCTAssertNotNil(modelResult)
+        XCTAssertEqual(modelResult?.${attr_name}, aValue1)
+        XCTAssertEqual(modelResult?.${attr_name}Optionl, aValue2)
+        XCTAssertEqual(modelResult?.${attr_name}Unwrapped, aValue1)
+        
+    }
+    
+    % end
+    % end
+
+}

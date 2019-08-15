@@ -22,7 +22,6 @@ extension Model  {
     
     /// Model To Dic
     public func toDictionary() -> [String : Any] {
-
         // 之所以要嫁接一层，是为了避免该方法头部加 mutating
         return Self.convertToDic(from: self)
     }
@@ -43,7 +42,6 @@ extension Model  {
         guard let dic = string.toJSONObject() as? [String : Any] else {
             return nil
         }
-        
         let instance = Self.convert(from: dic)
         return instance
     }
@@ -134,6 +132,7 @@ extension Model  {
         
         return instance
     }
+
 }
 
 // MARK: - Get Head Pointer<获取头部地址>
@@ -141,14 +140,14 @@ extension Model  {
 extension Model {
     mutating func headPointer() -> UnsafeMutablePointer<Int8> {
         if Self.self is AnyClass {
-            // 找到指定的堆地址
+            // 类，找到指定的堆地址
             let opaquePointer = Unmanaged.passUnretained(self as AnyObject).toOpaque()
             let mutableTypedPointer = opaquePointer.bindMemory(to: Int8.self, capacity: MemoryLayout<Self>.stride)
             return UnsafeMutablePointer<Int8>(mutableTypedPointer)
-        } else {
-            return withUnsafeMutablePointer(to: &self) {
-                return UnsafeMutableRawPointer($0).bindMemory(to: Int8.self, capacity: MemoryLayout<Self>.stride)
-            }
+        }
+        // 结构体
+        return withUnsafeMutablePointer(to: &self) {
+            return UnsafeMutableRawPointer($0).bindMemory(to: Int8.self, capacity: MemoryLayout<Self>.stride)
         }
     }
 }
@@ -168,7 +167,7 @@ extension Model {
 
 // MARK: - Extension Array<扩展数组>
 
-public extension Array where Element: Model {
+public extension Array where Element : Model {
     
     /// [Model] To JsonObject
     private func _toJSONObject() -> [Any] {
@@ -185,6 +184,7 @@ public extension Array where Element: Model {
         return jsonStr
     }
     
+    /// JsonString To [Model]
     static func initWith(_ string : String) -> Self? {
         
         // 先转数组
@@ -196,10 +196,12 @@ public extension Array where Element: Model {
         return nil
     }
     
+    /// [Any] To [Model]
     static func initWith(_ array : [Any]) -> Self? {
         return self.initWith(array as NSArray)
     }
     
+    /// NSArray To [Model]
     static func initWith(_ array : NSArray) -> Self? {
         var newArr = [Element]()
         for item in array {
@@ -209,5 +211,58 @@ public extension Array where Element: Model {
             }
         }
         return newArr
+    }
+}
+
+// MARK: - Extension Dictionary<扩展数组>
+
+public extension Dictionary where Value : Model {
+    
+    /// [Model] To JsonObject
+    private func _toJSONObject() -> [String:Any] {
+        return _convertAnyToBaseType(self) as! [String:Any]
+    }
+    
+    /// [Model] To JsonString
+    func toJSONString() -> String? {
+        
+        // 先转字典
+        let arr = self._toJSONObject()
+        
+        let jsonStr = JsonSerializer.jsonSting(from: arr);
+        return jsonStr
+    }
+    
+    /// JsonString To [String:Model]
+    static func initWith(_ string : String) -> Self? {
+        
+        // 先转字典
+        let arr = string.toJSONObject()
+        
+        if arr is [String:Any] {
+            return self.initWith(arr as! [String:Any])
+        }
+        return nil
+    }
+    
+    /// [String:Any] To [String:Model]
+    static func initWith(_ dic : [String:Any]) -> Self? {
+        
+        return self.initWith(dic as NSDictionary)
+    }
+    
+    /// NSDictionary To [String:Model]
+    static func initWith(_ dic : NSDictionary) -> Self? {
+        var newDic = [Key:Value]()
+        for item in dic {
+            guard let key = item.key as? Key else {
+                return nil
+            }
+            let value = _anyConvertToType(item.value, aType: Value.self) as? Value
+            if (value != nil) {
+                newDic[key] = value
+            }
+        }
+        return newDic
     }
 }

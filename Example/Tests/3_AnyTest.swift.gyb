@@ -1,0 +1,79 @@
+//
+//  AnyTest.swift
+//  MJModel_Example
+//
+//  Created by 黄磊 on 2019/7/17.
+//  Copyright © 2019 CocoaPods. All rights reserved.
+//  继承类型测试
+
+import Foundation
+import XCTest
+import MJModel
+%{
+class_types = ['struct', 'class']
+}%
+
+%{ import csv }%
+% with open('base_types.csv') as base_types_file:
+%{
+# 从表格中读取
+base_types = []
+for row in csv.DictReader(base_types_file):
+    a_type = row["Type"]
+    if a_type :
+        base_types.append(a_type)
+}%
+
+% for a_class_type in class_types :
+${a_class_type} Any${a_class_type[:1].upper() + a_class_type[1:]} : Model {
+    //MARK: Any is not support for now. Use Any! or Any?
+    var any : Any! = empertyValueForType(Any.self)!
+    var anyOptionl : Any?
+    var anyUnwrapped : Any!
+    
+% if a_class_type == 'class' :
+    required init() {}
+% end
+}
+
+% end
+
+class _3_AnyTest: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
+    // test any type one by one
+    % for a_class_type in class_types :
+    % for a_type in base_types :
+    /// Test Any in ${a_class_type} to json string and convert back
+    func test${a_class_type[:1].upper() + a_class_type[1:]}Any${a_type}ToJson () {
+        
+        ${'let' if (a_class_type=='class') else 'var'} model = Any${a_class_type[:1].upper() + a_class_type[1:]}.init()
+        let aValue1 : ${a_type} = defaultValueForType(${a_type}.self)!
+        let aValue2 : ${a_type} = empertyValueForType(${a_type}.self)!
+        model.any = aValue1
+        model.anyOptionl = aValue2
+        model.anyUnwrapped = aValue1
+        
+        let jsonString = model.toJSONString();
+        let modelResult = Any${a_class_type[:1].upper() + a_class_type[1:]}.initWith(jsonString!)
+        
+        XCTAssertNotNil(jsonString)
+        XCTAssertNotNil(modelResult)
+        XCTAssertEqual(modelResult?.any as? ${a_type}, aValue1)
+        XCTAssertEqual(modelResult?.anyOptionl as? ${a_type}, aValue2)
+        XCTAssertEqual(modelResult?.anyUnwrapped as? ${a_type}, aValue1)
+        
+    }
+    % end
+    % end
+
+}

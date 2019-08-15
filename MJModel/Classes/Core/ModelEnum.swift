@@ -20,11 +20,10 @@ public extension RawRepresentable where Self: ModelEnum {
     static func convert(from object: Any) -> Self? {
         if object is RawValue {
             return Self(rawValue: object as! RawValue)
-        } else {
-            let typedValue = _anyConvertToType(object, aType: RawValue.self) as? RawValue
-            if typedValue != nil {
-                return Self(rawValue: typedValue!)
-            }
+        }
+        let typedValue = _anyConvertToType(object, aType: RawValue.self) as? RawValue
+        if typedValue != nil {
+            return Self(rawValue: typedValue!)
         }
         return nil
     }

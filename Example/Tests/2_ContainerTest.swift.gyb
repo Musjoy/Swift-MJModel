@@ -1,0 +1,151 @@
+//
+//  ContainerTest.swift
+//  MJModel_Example
+//
+//  Created by 黄磊 on 2019/7/17.
+//  Copyright © 2019 CocoaPods. All rights reserved.
+//  容器类型测试
+
+import Foundation
+import XCTest
+import MJModel
+%{
+class_types = ['struct', 'class']
+}%
+
+%{ import csv }%
+% with open('container_types.csv') as container_types_file:
+%{
+# 从表格中读取
+default_values = {}
+container_types = []
+cur_container = None
+is_dic = False
+is_ns = False
+for row in csv.DictReader(container_types_file):
+    a_type = row["Type"]
+    a_container = row["Container"]
+    if a_container :
+        cur_container = a_container
+        if cur_container == 'Dictionary' or cur_container == 'NSDictionary' :
+            is_dic = True
+        else :
+            is_dic = False
+        if cur_container[0:2] == 'NS' :
+            is_ns = True
+        else :
+            is_ns = False
+    if not a_type or not cur_container :
+        continue
+    a_container_type = {}
+    a_container_type['container'] = cur_container
+    a_container_type['type'] = a_type
+    a_container_type['is_dic'] = is_dic
+    a_container_type['is_ns'] = is_ns
+    pre = ('nsDic' if (is_dic) else 'nsArr') if (is_ns) else ('dic' if (is_dic) else 'arr')
+    a_container_type['attr_name'] = pre + a_type + 's'
+    a_full_type = None
+    if is_ns :
+        a_full_type = a_container_type['container']
+    else :
+        a_full_type = '[' + ('String:' if (is_dic) else '') + a_type + ']'
+    a_container_type['full_type'] = a_full_type
+    
+    if is_ns :
+        if is_dic :
+            a_default_value = 'NSDictionary()'
+        else :
+            a_default_value = 'NSArray()'
+    else :
+        if is_dic :
+            a_default_value = '[:]'
+        else :
+            a_default_value = '[]'
+    default_values[a_full_type] = a_default_value
+    container_types.append(a_container_type)
+}%
+% end
+
+% for a_class_type in class_types :
+${a_class_type} Container${a_class_type[:1].upper() + a_class_type[1:]} : Model {
+% for a_container_type  in container_types :
+    %{
+    a_type = a_container_type['type']
+    is_dic = a_container_type['is_dic']
+    is_ns = a_container_type['is_ns']
+    a_attr_name = a_container_type['attr_name']
+    a_full_type = a_container_type['full_type']
+    }%
+    var ${a_attr_name} : ${a_full_type} = ${default_values[a_full_type]}
+    var ${a_attr_name}Optionl : ${a_full_type}?
+    var ${a_attr_name}Unwrapped : ${a_full_type}!
+    
+% end
+% if a_class_type == 'class' :
+    required init() {}
+% end
+}
+% end
+
+class _2_ContainerTest: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
+    // test container type one by one
+    % for a_class_type in class_types :
+    % for a_container_type  in container_types :
+%{
+attr_name = a_container_type['attr_name']
+a_type = a_container_type['type']
+}%
+        
+    /// Test ${a_container_type['full_type']} in ${a_class_type} to json string and convert back
+    func test${a_class_type[:1].upper() + a_class_type[1:]}${a_container_type['full_type'] if (a_container_type['is_ns']) else (attr_name[:1].upper() + attr_name[1:])}ToJson () {
+        
+        ${'let' if (a_class_type=='class') else 'var'} model = Container${a_class_type[:1].upper() + a_class_type[1:]}.init()
+        % if a_container_type['is_dic'] :
+        let aValue : ${a_container_type['full_type']} = ["key1":defaultValueForType(${a_type}.self)!, "key2":empertyValueForType(${a_type}.self)!]
+        % else :
+        let aValue : ${a_container_type['full_type']} = [defaultValueForType(${a_type}.self)!, empertyValueForType(${a_type}.self)!]
+        % end
+        model.${attr_name} = aValue
+        model.${attr_name}Optionl = aValue
+        model.${attr_name}Unwrapped = aValue
+        
+        let jsonString = model.toJSONString();
+        let modelResult = Container${a_class_type[:1].upper() + a_class_type[1:]}.initWith(jsonString!)
+        
+        XCTAssertNotNil(jsonString)
+        XCTAssertNotNil(modelResult)
+        % if a_type == 'Any' :
+        let value1 = ${'aValue["key1"] as! String' if (a_container_type['is_dic']) else 'aValue[0] as! String'}
+        let value2 = ${'aValue["key2"] as! Int' if (a_container_type['is_dic']) else 'aValue[1] as! Int'}
+        %{index1=('"key1"' if (a_container_type['is_dic']) else '0')}%
+        %{index2=('"key2"' if (a_container_type['is_dic']) else '1')}%
+        XCTAssertEqual(modelResult?.${attr_name}[${index1}] as? String, value1)
+        XCTAssertEqual(modelResult?.${attr_name}[${index2}] as? Int, value2)
+        XCTAssertEqual(modelResult?.${attr_name}Optionl?[${index1}] as? String, value1)
+        XCTAssertEqual(modelResult?.${attr_name}Optionl?[${index2}] as? Int, value2)
+        XCTAssertEqual(modelResult?.${attr_name}Unwrapped?[${index1}] as? String, value1)
+        XCTAssertEqual(modelResult?.${attr_name}Unwrapped?[${index2}] as? Int, value2)
+        % else :
+        XCTAssertEqual(modelResult?.${attr_name}, aValue)
+        XCTAssertEqual(modelResult?.${attr_name}Optionl, aValue)
+        XCTAssertEqual(modelResult?.${attr_name}Unwrapped, aValue)
+        % end
+        
+    }
+    
+    % end
+
+    % end
+}
+
