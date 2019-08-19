@@ -20,12 +20,20 @@ Pod::Spec.new do |s|
 
   s.default_subspec = 'Core'
 
-  s.user_target_xcconfig = {
-    'OTHER_SWIFT_FLAGS' => '-DMODULE_MODEL'
-  }
+  
 
   s.subspec 'Core' do |ss|
     ss.source_files = 'MJModel/Classes/Core/*.swift', 'MJModel/Classes/Json/*.swift'
+    ss.user_target_xcconfig = {
+      'OTHER_SWIFT_FLAGS' => '-DMODULE_MODEL'
+    }
+  end
+  
+  s.subspec 'JsonSerializer' do |ss|
+    ss.source_files = 'MJModel/Classes/Json/*.swift'
+    ss.user_target_xcconfig = {
+      'OTHER_SWIFT_FLAGS' => '-DMODULE_JSON_SERIALIZER'
+    }
   end
 
 end

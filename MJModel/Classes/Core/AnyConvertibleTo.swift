@@ -77,14 +77,11 @@ extension NSNumber : _AnyConvertibleTo {
                 return NSNumber(booleanLiteral: true) as? Self
             } else if lowercase == "false" {
                 return NSNumber(booleanLiteral: false) as? Self
-            } else {
-                // normal number
-                let formatter = NumberFormatter()
-                formatter.numberStyle = .decimal
-                return formatter.number(from: str as String) as? Self
             }
-        } else if let num = object as? NSNumber {
-            return num as? Self
+            // normal number
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            return formatter.number(from: str as String) as? Self
         }
         let newObject = object as? Self
         return newObject
@@ -147,9 +144,8 @@ extension Bool : _AnyConvertibleTo {
                 return true
             } else if str == "0" || str == "false" {
                 return false
-            } else {
-                return nil
             }
+            return nil
         } else if let num = object as? NSNumber {
             return num.boolValue
         }

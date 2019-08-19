@@ -39,8 +39,6 @@
 		24B8B5F336114EBDE4184130 /* Pods-MJModel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJModel_Example.release.xcconfig"; path = "Target Support Files/Pods-MJModel_Example/Pods-MJModel_Example.release.xcconfig"; sourceTree = "<group>"; };
 		34442D0E22F829BA0010A2E6 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		34442D1022F83BF80010A2E6 /* 2_InheritTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2_InheritTest.swift; sourceTree = "<group>"; };
-		34794B5122FBD22C00BCC1FC /* 4_ExceptionTypeMismatchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4_ExceptionTypeMismatchTest.swift; sourceTree = "<group>"; };
-		34794B5322FBD29800BCC1FC /* 4_ExceptionTypeMismatchTest.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = 4_ExceptionTypeMismatchTest.swift.gyb; sourceTree = "<group>"; };
 		349E9D7922E049AE00A214DA /* 1_BaseTypeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 1_BaseTypeTest.swift; sourceTree = "<group>"; };
 		34C0678922F9737F006A45F9 /* 3_AnyTest.swift.gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3_AnyTest.swift.gyb; sourceTree = "<group>"; };
 		34C067A822FA7212006A45F9 /* 3_TypeMismatchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3_TypeMismatchTest.swift; sourceTree = "<group>"; };
@@ -155,8 +153,6 @@
 				34C067AA22FA723D006A45F9 /* 3_TypeMismatchTest.swift.gyb */,
 				34C142C222F95BE3005FE4FA /* 3_OtherTest.swift */,
 				34C067E322FAD789006A45F9 /* 4_ExceptionTest.swift */,
-				34794B5122FBD22C00BCC1FC /* 4_ExceptionTypeMismatchTest.swift */,
-				34794B5322FBD29800BCC1FC /* 4_ExceptionTypeMismatchTest.swift.gyb */,
 				34F5714722F7E2470057EE2A /* base_types.csv */,
 				34F5714C22F8015F0057EE2A /* container_types.csv */,
 				34C067AB22FA84FC006A45F9 /* mismatch_typs.csv */,

@@ -31,13 +31,23 @@ class _4_ExceptionTest: XCTestCase {
         XCTAssertNil(dic)
     }
     
+
+    
     /// Test dictionary to json string with exception
-    func testDictionaryToJsonStringException () {
+    func testDataDictionaryToJsonStringException () {
 
         // We get NSInvalidArgumentException, and can't catch it
-        let dic = ["name":"string","age":1, "data":"string".data(using: .utf8)!] as [String : Any]
+        let dic = ["data":"string".data(using: .utf8)!] as [String : Any]
         let jsonString = dic.toJSONString()
 
+        XCTAssertNil(jsonString)
+    }
+    
+    func testBogusStringDictionaryToJsonStringException() {
+        let bogusStr = String(bytes: [0xD8, 0x00] as [UInt8], encoding: String.Encoding.utf16BigEndian)!
+        let dic = ["name":bogusStr] as [String : Any]
+        let jsonString = dic.toJSONString()
+        
         XCTAssertNil(jsonString)
     }
     
@@ -49,5 +59,33 @@ class _4_ExceptionTest: XCTestCase {
         
         XCTAssertNil(dic)
     }
+    
+    /// Test array json string to model
+    func testArrayJsonStringToModel() {
+
+        let jsonString = "[{\"name\":\"string\",\"age\":1}]"
+        let model = BaseModel.initWith(jsonString)
+        
+        XCTAssertNil(model)
+    }
+
+    /// Test array json string to dictionary  model
+    func testArrayJsonStringToDictionaryModel() {
+
+        let jsonString = "[{\"name\":\"string\",\"age\":1}]"
+        let model = [String:BaseModel].initWith(jsonString)
+        
+        XCTAssertNil(model)
+    }
+    
+    /// Test dictionary json string to array  model
+    func testDictionaryJsonStringToArrayModel() {
+
+        let jsonString = "{\"name\":\"string\",\"age\":1}"
+        let model = [BaseModel].initWith(jsonString)
+        
+        XCTAssertNil(model)
+    }
+    
     
 }

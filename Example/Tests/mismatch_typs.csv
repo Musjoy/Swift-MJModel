@@ -1,55 +1,61 @@
-Type,MismatchType,ConvertAddition
-Int,String,
-,Float,
-,Double,
-,Bool,value ? 1 : 0
-,NSString,value as String
-,NSNumber,truncating:
-UInt,Int,value >= 0 ? value : 0
-,String,
-,Float,(value >= 0 ? UInt(value) : nil)
-,Double,(value >= 0 ? UInt(value) : nil)
-,Bool,value ? 1 : 0
-,NSString,value as String
-,NSNumber,truncating:
-,,
-Float,Int,
-,String,
-,Double,
-,Bool,value ? 1 : 0
-,NSString,value as String
-,NSNumber,truncating:
-Double,Int,
-,String,
-,Float,
-,Bool,value ? 1 : 0
-,NSString,value as String
-,NSNumber,truncating:
-,,
-Bool,Int,value != 0
-,String,(value as NSString).boolValue
-,Float,value != 0
-,Double,value != 0
-,NSString,value.boolValue
-,NSNumber,truncating:
-,,
-String,Int,
-,Float,
-,Double,
-,Bool,
-,NSNumber,value.stringValue
-,,
-NSString,Int,"string: ""\(value)"""
-,Float,"string: ""\(value)"""
-,Double,"string: ""\(value)"""
-,Bool,"string: ""\(value)"""
-,NSNumber,string: value.stringValue
-,,
-NSNumber,Int,value:
-,String,convertStringToNSNumber(value)
-,Float,value:
-,Double,value:
-,Bool,value:
-,NSString,convertStringToNSNumber(value as String)
-,,
-EnumInt,String,((Int(value) != nil) ? EnumInt(rawValue: Int(value)!) : nil)
+Type,MismatchType
+Int,String
+,Float
+,Double
+,Bool
+,NSString
+,NSNumber
+,Any
+UInt,Int
+,String
+,Float
+,Double
+,Bool
+,NSString
+,NSNumber
+,Any
+,
+Float,Int
+,String
+,Double
+,Bool
+,NSString
+,NSNumber
+,Any
+Double,Int
+,String
+,Float
+,Bool
+,NSString
+,NSNumber
+,Any
+,
+Bool,Int
+,String
+,Float
+,Double
+,NSString
+,NSNumber
+,Any
+,
+String,Int
+,Float
+,Double
+,Bool
+,NSNumber
+,
+NSString,Int
+,Float
+,Double
+,Bool
+,NSNumber
+,
+NSNumber,Int
+,String
+,Float
+,Double
+,Bool
+,NSString
+,
+EnumInt,Int
+,String

@@ -7,7 +7,6 @@
 
 import Foundation
 
-var s_dicPropertyMaps = [String : [String : ModelProperty]]()
 var s_dicPropertyLists = [String : [ModelProperty]]()
 
 // MARK: - ModelProperty<模型属性>
@@ -55,15 +54,6 @@ extension Model {
         return String(reflecting: Self.self)
     }
     
-    /// 获取该类的属性列表，并以键值对的方式保存，暂时未使用
-    static func _getPropertyMap() -> [String : ModelProperty]?{
-        if let dicCache = s_dicPropertyMaps[Self._getTypeFullName()] {
-            return dicCache;
-        }
-        let dicCache = Self._loadProperties(with: [String : ModelProperty].self)
-        return dicCache
-    }
-    
     /// 获取该类的属性列表
     static func _getProperties() -> [ModelProperty] {
         if let arrCache = s_dicPropertyLists[Self._getTypeFullName()] {
@@ -79,7 +69,6 @@ extension Model {
         let instance : Self = Self.init();
         
         let mirror = Mirror(reflecting: instance)
-        var dic = [String : ModelProperty]()
         var curOffset = 0
         if Self.self is AnyClass {
             // 类前面固定2个字节，一个字节用于保存类的类型，并执行该类的V-Table；一个用于保存引用计数 refCount
@@ -90,7 +79,7 @@ extension Model {
             }
         }
         
-        let arr = Self._propertiesFromMirror(mirror, curOffset: &curOffset, map: &dic)
+        let arr = Self._propertiesFromMirror(mirror, curOffset: &curOffset)
         
         // 校验一下尺寸
         var size : Int
@@ -111,20 +100,16 @@ extension Model {
         
         // 保存数据
         let typeFullName = Self._getTypeFullName()
-        s_dicPropertyMaps[typeFullName] = dic
         s_dicPropertyLists[typeFullName] = arr
-        if T.self is [String : Any].Type {
-            return dic as! T
-        }
         return arr as! T
     }
     
     /// 从镜像中遍历属性列表
-    static func _propertiesFromMirror(_ mirror:Mirror, curOffset:inout Int, map:inout [String : ModelProperty]) -> [ModelProperty] {
+    static func _propertiesFromMirror(_ mirror:Mirror, curOffset:inout Int) -> [ModelProperty] {
         var arr = [ModelProperty]()
         // 先读取父类属性列表
         if mirror.superclassMirror != nil {
-            let arrSuper = Self._propertiesFromMirror(mirror.superclassMirror!, curOffset: &curOffset, map: &map)
+            let arrSuper = Self._propertiesFromMirror(mirror.superclassMirror!, curOffset: &curOffset)
             if !arrSuper.isEmpty {
                 arr += arrSuper
             }
@@ -136,7 +121,6 @@ extension Model {
             }
             let aProperty = ModelProperty.init(item: item, offset: curOffset)
             arr.append(aProperty)
-            map[aProperty.name] = aProperty;
             curOffset = aProperty.offset + aProperty.size
         }
         return arr

@@ -22,7 +22,6 @@ cur_type_info = None
 for row in csv.DictReader(mismatch_typs_file):
     a_type = row["Type"]
     a_mismatch_type = row["MismatchType"]
-    a_convert_addition = row["ConvertAddition"]
     if a_type:
         if cur_type_info :
             base_types.append(cur_type_info)
@@ -34,7 +33,6 @@ for row in csv.DictReader(mismatch_typs_file):
     mismatch_types = cur_type_info['mismatch_types']
     mismatch_type_info = {}
     mismatch_type_info['mismatch_type'] = a_mismatch_type
-    mismatch_type_info['convert_addition'] = (a_convert_addition if a_convert_addition else '')
     mismatch_types.append(mismatch_type_info)
     cur_type_info['mismatch_types'] = mismatch_types
 if cur_type_info :
@@ -62,53 +60,18 @@ class _3_MismatchTypeTest: XCTestCase {
     %{mismatch_types=a_type_info['mismatch_types']}%
     % for a_mismatch_type_info  in mismatch_types :
     %{a_mismatch_type=a_mismatch_type_info['mismatch_type']}%
-    %{a_convert_addition=a_mismatch_type_info['convert_addition']}%
     /// Test ${a_type} from ${a_mismatch_type} in ${a_class_type} to json string and convert back
     func test${a_class_type[:1].upper() + a_class_type[1:]}${a_type}From${a_mismatch_type}ToModel () {
     
         %{attr_name=a_type[:1].lower() + a_type[1:]}%
         let arrValues = mismatchValuesFrom(${a_mismatch_type}.self, to:${a_type}.self)
+        let arrResults = mismatchResultsFrom(${a_mismatch_type}.self, to:${a_type}.self)
         XCTAssertNotNil(arrValues)
-        for value in arrValues! {
+        for (index,value) in arrValues!.enumerated() {
         
             let dic = ["${attr_name}":value,"${attr_name}Optionl":value,"${attr_name}Unwrapped":value]
             let modelResult = ${'Enum' if (a_type=='EnumInt') else 'BaseType'}${a_class_type[:1].upper() + a_class_type[1:]}.initWith(dic)
-            % if a_convert_addition and a_convert_addition[-1] != ':' :
-            % if a_convert_addition[-1] == ')' :
-            let resultValue = ${a_convert_addition}
-            % else :
-            let resultValue = ${a_type}(${a_convert_addition})
-            % end
-            % else :
-            let resultValue = ${a_type}(${a_convert_addition}value)
-            % end
-            
-            XCTAssertNotNil(modelResult)
-            XCTAssertEqual(modelResult?.${attr_name}, resultValue)
-            XCTAssertEqual(modelResult?.${attr_name}Optionl, resultValue)
-            XCTAssertEqual(modelResult?.${attr_name}Unwrapped, resultValue)
-        }
-    }
-    
-    /// Test ${a_type} from ${a_mismatch_type} in ${a_class_type} to json string and convert back
-    func test${a_class_type[:1].upper() + a_class_type[1:]}${a_type}From${a_mismatch_type}UnexpectedToModel () {
-    
-        %{attr_name=a_type[:1].lower() + a_type[1:]}%
-        let arrValues = mismatchUnexpectedValuesFrom(${a_mismatch_type}.self, to:${a_type}.self)
-        XCTAssertNotNil(arrValues)
-        for value in arrValues! {
-        
-            let dic = ["${attr_name}":value,"${attr_name}Optionl":value,"${attr_name}Unwrapped":value]
-            let modelResult = ${'Enum' if (a_type=='EnumInt') else 'BaseType'}${a_class_type[:1].upper() + a_class_type[1:]}.initWith(dic)
-            % if a_convert_addition and a_convert_addition[-1] != ':' :
-            % if a_convert_addition[-1] == ')' :
-            let resultValue : ${a_type}? = ${a_convert_addition}
-            % else :
-            let resultValue : ${a_type}? = ${a_type}(${a_convert_addition})
-            % end
-            % else :
-            let resultValue : ${a_type}? = ${a_type}(${a_convert_addition}value)
-            % end
+            let resultValue = arrResults?[index]
             
             XCTAssertNotNil(modelResult)
             if (resultValue == nil) {
@@ -116,17 +79,13 @@ class _3_MismatchTypeTest: XCTestCase {
                 XCTAssertNil(modelResult?.${attr_name}Optionl)
                 XCTAssertNil(modelResult?.${attr_name}Unwrapped)
             } else {
-                if (resultValue! == empertyValueForType(${a_type}.self)!) {
-                    XCTAssertEqual(modelResult?.${attr_name}, resultValue!)
-                } else {
-                    XCTAssertNotEqual(modelResult?.${attr_name}, resultValue!)
-                }
-                XCTAssertNotEqual(modelResult?.${attr_name}Optionl, resultValue!)
-                XCTAssertNotEqual(modelResult?.${attr_name}Unwrapped, resultValue!)
+                XCTAssertEqual(modelResult?.${attr_name}, resultValue)
+                XCTAssertEqual(modelResult?.${attr_name}Optionl, resultValue)
+                XCTAssertEqual(modelResult?.${attr_name}Unwrapped, resultValue)
             }
-            
         }
     }
+    
     % end
     % end
 

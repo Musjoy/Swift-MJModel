@@ -116,12 +116,7 @@ extension Model  {
             }
             
             // 属性转化
-            var newValue : Any?
-            if type(of: aValue!) == aProperty.type {
-                newValue = aValue!
-            } else {
-                newValue = _anyConvertToType(aValue!, aType: aProperty.type)
-            }
+            let newValue = _anyConvertToType(aValue!, aType: aProperty.type)
             if newValue == nil {
                 continue
             }
@@ -227,9 +222,9 @@ public extension Dictionary where Value : Model {
     func toJSONString() -> String? {
         
         // 先转字典
-        let arr = self._toJSONObject()
+        let dic = self._toJSONObject()
         
-        let jsonStr = JsonSerializer.jsonSting(from: arr);
+        let jsonStr = JsonSerializer.jsonSting(from: dic);
         return jsonStr
     }
     
@@ -237,10 +232,10 @@ public extension Dictionary where Value : Model {
     static func initWith(_ string : String) -> Self? {
         
         // 先转字典
-        let arr = string.toJSONObject()
+        let dic = string.toJSONObject()
         
-        if arr is [String:Any] {
-            return self.initWith(arr as! [String:Any])
+        if dic is [String:Any] {
+            return self.initWith(dic as! [String:Any])
         }
         return nil
     }

@@ -33,7 +33,7 @@ class _3_OtherTest: XCTestCase {
         let value2 : Int = defaultValueForType(Int.self)!
         let value3 : Float = defaultValueForType(Float.self)!
         let value4 : Bool = defaultValueForType(Bool.self)!
-        let dicOrigin : [String:Any] = ["key1":value1,"key2":value2,"key3":value3,"key4":value4]
+        let dicOrigin : [String:Any?] = ["key1":value1,"key2":value2,"key3":value3,"key4":value4]
         
         let jsonString : String = dicOrigin.toJSONString()!
         let dicResult = jsonString.toJSONObject() as? [String:Any]
@@ -105,6 +105,20 @@ class _3_OtherTest: XCTestCase {
         XCTAssertEqual(arrResult?.count, 1)
         XCTAssertEqual(arrResult?[0].name, value1)
         XCTAssertEqual(arrResult?[0].age, value2)
-        
     }
+    
+    /// Test [Model] ] to json string and convert back
+    func testNSDictionaryToModel () {
+        
+        let value1 :String = defaultValueForType(String.self)!
+        let value2 :Int = defaultValueForType(Int.self)!
+        let dic : NSDictionary = ["name":value1,"age":value2]
+        
+        let modelResult = BaseModel.initWith(dic)
+        
+        XCTAssertNotNil(modelResult)
+        XCTAssertEqual(modelResult?.name, value1)
+        XCTAssertEqual(modelResult?.age, value2)
+    }
+        
 }

@@ -9,22 +9,22 @@ import Foundation
 
 /// 通用将Any转为基础类型方法
 func _convertAnyToBaseType(_ data : Any) -> Any? {
-    if data is Model {
-        return (data as! Model).toDictionary()
-    } else if data is _BaseType {
+    if data is _BaseType {
         return data
+    } else if data is Model {
+        return (data as! Model).toDictionary()
     } else if data is _ConvertToBaseType {
         return (data as! _ConvertToBaseType)._convertToBaseType()
     } else if data is ConvertToBaseType {
         return (data as! ConvertToBaseType).convertToBaseType()
-    } else {
-        if String(describing: type(of: data)) == "__SwiftValue" {
-            // The struct in NSArray or NSDictionary will become __SwiftValue
-            return _convertSwiftValueToBaseType(data)
-        }
-        print("The type \(String(describing: type(of: data))) is not suppored for now! You can inherit from Model or inherit from ConvertToBaseType protocal and implement convertToBaseType function")
-        return nil
     }
+    
+    if String(describing: type(of: data)) == "__SwiftValue" {
+        // The struct in NSArray or NSDictionary will become __SwiftValue
+        return _convertSwiftValueToBaseType(data)
+    }
+    print("The type \(String(describing: type(of: data))) is not suppored for now! You can inherit from Model or inherit from ConvertToBaseType protocal and implement convertToBaseType function")
+    return nil
 }
 
 // MARK: __SwiftValue Support
@@ -59,19 +59,13 @@ func _convertSwiftValueToBaseType(_ swiftValue:Any) -> Any? {
     for aProperty in arrProperties! {
         let aValue = _theExtension(withType: aProperty.type)._read(from: (head.advanced(by: aProperty.offset)))
         if aValue != nil {
-            if aValue is _BaseType {
-                dic[aProperty.name] = aValue!
-            }
             let aBaseValue = _convertAnyToBaseType(aValue!)
             if aBaseValue != nil {
                 dic[aProperty.name] = aBaseValue!
             }
         }
     }
-    if !dic.isEmpty {
-        return dic
-    }
-    return nil;
+    return dic;
 }
 
 // MARK: - ConvertToBaseType<数据转化为基础类型协议>

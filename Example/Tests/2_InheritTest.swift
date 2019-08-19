@@ -86,6 +86,11 @@ class ExtendOtherClass : OtherClass {
 
 extension ExtendOtherClass : Model {}
 
+struct OtherStruct {
+    var name : String?
+    var age : Int?
+}
+
 struct ExtendOtherStruct {
     var name : String?
     var age : Int?
@@ -139,7 +144,7 @@ class _2_InheritTest: XCTestCase {
         
     /// Test inherit class to json string and convert back
     func testClassInheritToJson () {
-        
+
         let model = InheritClass.init()
         let aName : String = defaultValueForType(String.self)!
         let aName1 : String = empertyValueForType(String.self)!
@@ -189,7 +194,7 @@ class _2_InheritTest: XCTestCase {
         mixModel.age = aAge
         mixModel.partClass = classModel
         mixModel.partStruct = structModel
-        model.nsArr = [classModel, structModel, mixModel]
+        model.nsArr = [classModel, structModel, mixModel,BaseStruct.init(),OtherStruct.init()]
         model.nsDic = ["key1":classModel, "key2":structModel, "key3":mixModel]
         
         let jsonString = model.toJSONString();
@@ -214,7 +219,7 @@ class _2_InheritTest: XCTestCase {
         XCTAssertNotNil(modelResult?.structModelDics)
         XCTAssertEqual(modelResult?.structModelDics?["key2"]?.name, aName)
         XCTAssertEqual(modelResult?.structModelDics?["key2"]?.age, aAge)
-        XCTAssertEqual(modelResult?.nsArr?.count, 3)
+        XCTAssertEqual(modelResult?.nsArr?.count, 4)
         XCTAssertEqual((modelResult?.nsArr?[0] as? NSDictionary)?["name"] as? String, aName)
         XCTAssertEqual((modelResult?.nsArr?[0] as? NSDictionary)?["name1"] as? String, aName1)
         XCTAssertEqual((modelResult?.nsArr?[0] as? NSDictionary)?["age"] as? Int, aAge)
