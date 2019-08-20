@@ -83,8 +83,9 @@ extension NSNumber : _AnyConvertibleTo {
             formatter.numberStyle = .decimal
             return formatter.number(from: str as String) as? Self
         }
-        let newObject = object as? Self
-        return newObject
+        // 这里直接 as? Self 会导致swift编译错误
+        let newObject = object as? NSNumber
+        return newObject as? Self
     }
 }
 

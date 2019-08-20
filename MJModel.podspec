@@ -19,6 +19,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.default_subspec = 'Core'
+  
+  s.swift_versions = '5.0'
 
   s.subspec 'Core' do |ss|
     ss.source_files = 'MJModel/Classes/Core/*.swift'
