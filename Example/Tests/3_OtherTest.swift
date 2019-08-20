@@ -72,7 +72,7 @@ class _3_OtherTest: XCTestCase {
         
         let value1 :String = defaultValueForType(String.self)!
         let value2 :Int = defaultValueForType(Int.self)!
-        var baseModel = BaseModel.init()
+        var baseModel = BaseModel()
         baseModel.name = value1;
         baseModel.age = value2;
         let dicOrigin : [String:BaseModel] = ["key1":baseModel]
@@ -92,7 +92,7 @@ class _3_OtherTest: XCTestCase {
         
         let value1 :String = defaultValueForType(String.self)!
         let value2 :Int = defaultValueForType(Int.self)!
-        var baseModel = BaseModel.init()
+        var baseModel = BaseModel()
         baseModel.name = value1;
         baseModel.age = value2;
         let arrOrigin : [BaseModel] = [baseModel]
@@ -119,6 +119,7 @@ class _3_OtherTest: XCTestCase {
         XCTAssertNotNil(modelResult)
         XCTAssertEqual(modelResult?.name, value1)
         XCTAssertEqual(modelResult?.age, value2)
+        
     }
         
 }

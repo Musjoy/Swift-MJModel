@@ -81,7 +81,7 @@ class _1_EnumTest: XCTestCase {
     func test${a_class_type[:1].upper() + a_class_type[1:]}Enum${a_type}ToJson () {
         
         %{attr_name='enum' + a_type}%
-        ${'let' if (a_class_type=='class') else 'var'} model = Enum${a_class_type[:1].upper() + a_class_type[1:]}.init()
+        ${'let' if (a_class_type=='class') else 'var'} model = Enum${a_class_type[:1].upper() + a_class_type[1:]}()
         let aValue1 : Enum${a_type} = .One
         let aValue2 : Enum${a_type} = .Two
         model.${attr_name} = aValue1

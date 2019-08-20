@@ -110,7 +110,7 @@ a_type = a_container_type['type']
     /// Test ${a_container_type['full_type']} in ${a_class_type} to json string and convert back
     func test${a_class_type[:1].upper() + a_class_type[1:]}${a_container_type['full_type'] if (a_container_type['is_ns']) else (attr_name[:1].upper() + attr_name[1:])}ToJson () {
         
-        ${'let' if (a_class_type=='class') else 'var'} model = Container${a_class_type[:1].upper() + a_class_type[1:]}.init()
+        ${'let' if (a_class_type=='class') else 'var'} model = Container${a_class_type[:1].upper() + a_class_type[1:]}()
         % if a_container_type['is_dic'] :
         let aValue : ${a_container_type['full_type']} = ["key1":defaultValueForType(${a_type}.self)!, "key2":empertyValueForType(${a_type}.self)!]
         % else :

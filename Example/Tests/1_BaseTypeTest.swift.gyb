@@ -58,7 +58,7 @@ class _1_BaseTypeTest: XCTestCase {
     func test${a_class_type[:1].upper() + a_class_type[1:]}${a_type}ToJson () {
         
         %{attr_name=a_type[:1].lower() + a_type[1:]}%
-        ${'let' if (a_class_type=='class') else 'var'} model = BaseType${a_class_type[:1].upper() + a_class_type[1:]}.init()
+        ${'let' if (a_class_type=='class') else 'var'} model = BaseType${a_class_type[:1].upper() + a_class_type[1:]}()
         let aValue : ${a_type} = defaultValueForType(${a_type}.self)!
         model.${attr_name} = aValue
         model.${attr_name}Optionl = aValue

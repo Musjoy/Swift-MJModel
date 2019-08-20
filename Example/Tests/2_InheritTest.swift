@@ -145,7 +145,7 @@ class _2_InheritTest: XCTestCase {
     /// Test inherit class to json string and convert back
     func testClassInheritToJson () {
 
-        let model = InheritClass.init()
+        let model = InheritClass()
         let aName : String = defaultValueForType(String.self)!
         let aName1 : String = empertyValueForType(String.self)!
         let aAge : Int = defaultValueForType(Int.self)!
@@ -170,7 +170,7 @@ class _2_InheritTest: XCTestCase {
     /// Test Model Container class to json string and convert back
     func testClassModelContainerToJson () {
         
-        let classModel = InheritClass.init()
+        let classModel = InheritClass()
         let aName : String = defaultValueForType(String.self)!
         let aName1 : String = empertyValueForType(String.self)!
         let aAge : Int = defaultValueForType(Int.self)!
@@ -180,21 +180,21 @@ class _2_InheritTest: XCTestCase {
         classModel.age = aAge
         classModel.age1 = aAge1
 
-        var structModel = BaseStruct.init()
+        var structModel = BaseStruct()
         structModel.name = aName
         structModel.age = aAge
-        let model = ModelContainerClass.init()
+        let model = ModelContainerClass()
         model.total = aAge
         model.classModels = [classModel]
         model.structModels = [structModel]
         model.classModelDics = ["key1":classModel]
         model.structModelDics = ["key2":structModel]
-        var mixModel = MixStruct.init()
+        var mixModel = MixStruct()
         mixModel.name = aName
         mixModel.age = aAge
         mixModel.partClass = classModel
         mixModel.partStruct = structModel
-        model.nsArr = [classModel, structModel, mixModel,BaseStruct.init(),OtherStruct.init()]
+        model.nsArr = [classModel, structModel, mixModel,BaseStruct(),OtherStruct()]
         model.nsDic = ["key1":classModel, "key2":structModel, "key3":mixModel]
         
         let jsonString = model.toJSONString();
@@ -248,7 +248,7 @@ class _2_InheritTest: XCTestCase {
     /// Test Model Container struct to json string and convert back
     func testStructModelContainerToJson () {
         
-        let classModel = InheritClass.init()
+        let classModel = InheritClass()
         let aName : String = defaultValueForType(String.self)!
         let aName1 : String = empertyValueForType(String.self)!
         let aAge : Int = defaultValueForType(Int.self)!
@@ -257,10 +257,10 @@ class _2_InheritTest: XCTestCase {
         classModel.name1 = aName1
         classModel.age = aAge
         classModel.age1 = aAge1
-        var structModel = BaseStruct.init()
+        var structModel = BaseStruct()
         structModel.name = aName
         structModel.age = aAge
-        let model = ModelContainerClass.init()
+        let model = ModelContainerClass()
         model.total = aAge
         model.classModels = [classModel]
         model.structModels = [structModel]
@@ -294,7 +294,7 @@ class _2_InheritTest: XCTestCase {
     /// Test Mix Model class to json string and convert back
     func testClassMixModelToJson () {
         
-        let classModel = InheritClass.init()
+        let classModel = InheritClass()
         let aName : String = defaultValueForType(String.self)!
         let aName1 : String = empertyValueForType(String.self)!
         let aAge : Int = defaultValueForType(Int.self)!
@@ -303,10 +303,10 @@ class _2_InheritTest: XCTestCase {
         classModel.name1 = aName1
         classModel.age = aAge
         classModel.age1 = aAge1
-        var structModel = BaseStruct.init()
+        var structModel = BaseStruct()
         structModel.name = aName
         structModel.age = aAge
-        let model = MixClass.init()
+        let model = MixClass()
         model.name = aName
         model.age = aAge
         model.partClass = classModel
@@ -333,7 +333,7 @@ class _2_InheritTest: XCTestCase {
     /// Test Mix Model struct to json string and convert back
     func testStructMixModelToJson () {
         
-        let classModel = InheritClass.init()
+        let classModel = InheritClass()
         let aName : String = defaultValueForType(String.self)!
         let aName1 : String = empertyValueForType(String.self)!
         let aAge : Int = defaultValueForType(Int.self)!
@@ -342,10 +342,10 @@ class _2_InheritTest: XCTestCase {
         classModel.name1 = aName1
         classModel.age = aAge
         classModel.age1 = aAge1
-        var structModel = BaseStruct.init()
+        var structModel = BaseStruct()
         structModel.name = aName
         structModel.age = aAge
-        let model = MixClass.init()
+        let model = MixClass()
         model.name = aName
         model.age = aAge
         model.partClass = classModel
@@ -372,7 +372,7 @@ class _2_InheritTest: XCTestCase {
     /// Test Inherit Other class to json string and convert back
     func testClassInheritOtherToJson () {
         
-        let model = InheritOtherClass.init()
+        let model = InheritOtherClass()
         let aName : String = defaultValueForType(String.self)!
         let aName1 : String = empertyValueForType(String.self)!
         let aAge : Int = defaultValueForType(Int.self)!
@@ -397,7 +397,7 @@ class _2_InheritTest: XCTestCase {
     /// Test Extend Other class to json string and convert back
     func testClassExtendOtherToJson () {
         
-        let model = ExtendOtherClass.init()
+        let model = ExtendOtherClass()
         let aName : String = defaultValueForType(String.self)!
         let aName1 : String = empertyValueForType(String.self)!
         let aAge : Int = defaultValueForType(Int.self)!
@@ -422,7 +422,7 @@ class _2_InheritTest: XCTestCase {
     /// Test Extend Other struct to json string and convert back
     func testStuctExtendOtherToJson () {
         
-        var model = ExtendOtherStruct.init()
+        var model = ExtendOtherStruct()
         let aName : String = defaultValueForType(String.self)!
         let aAge : Int = defaultValueForType(Int.self)!
         model.name = aName
@@ -441,7 +441,7 @@ class _2_InheritTest: XCTestCase {
     /// Test Inherit OC class to json string and convert back
     func testClassInheritOCToJson () {
         
-        let model = InheritOCClass.init()
+        let model = InheritOCClass()
         let aName : String = defaultValueForType(String.self)!
         let aAge : Int = defaultValueForType(Int.self)!
         model.name = aName
@@ -459,7 +459,7 @@ class _2_InheritTest: XCTestCase {
     /// Test Inherit Other OC class to json string and convert back
     func testClassInheritOtherOCToJson () {
         
-        let model = InheritOtherOCClass.init()
+        let model = InheritOtherOCClass()
         let aName : String = defaultValueForType(String.self)!
         let aName1 : String = empertyValueForType(String.self)!
         let aAge : Int = defaultValueForType(Int.self)!
@@ -484,7 +484,7 @@ class _2_InheritTest: XCTestCase {
     /// Test Extend Other OC class to json string and convert back
     func testClassExtendOtherOCToJson () {
         
-        let model = ExtendOtherOCClass.init()
+        let model = ExtendOtherOCClass()
         let aName : String = defaultValueForType(String.self)!
         let aName1 : String = empertyValueForType(String.self)!
         let aAge : Int = defaultValueForType(Int.self)!

@@ -163,7 +163,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Int in struct to json string and convert back
     func testStructIntToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : Int = defaultValueForType(Int.self)!
         model.int = aValue
         model.intOptionl = aValue
@@ -183,7 +183,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test UInt in struct to json string and convert back
     func testStructUIntToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : UInt = defaultValueForType(UInt.self)!
         model.uInt = aValue
         model.uIntOptionl = aValue
@@ -203,7 +203,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Int8 in struct to json string and convert back
     func testStructInt8ToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : Int8 = defaultValueForType(Int8.self)!
         model.int8 = aValue
         model.int8Optionl = aValue
@@ -223,7 +223,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Int16 in struct to json string and convert back
     func testStructInt16ToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : Int16 = defaultValueForType(Int16.self)!
         model.int16 = aValue
         model.int16Optionl = aValue
@@ -243,7 +243,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Int32 in struct to json string and convert back
     func testStructInt32ToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : Int32 = defaultValueForType(Int32.self)!
         model.int32 = aValue
         model.int32Optionl = aValue
@@ -263,7 +263,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Int64 in struct to json string and convert back
     func testStructInt64ToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : Int64 = defaultValueForType(Int64.self)!
         model.int64 = aValue
         model.int64Optionl = aValue
@@ -283,7 +283,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test UInt8 in struct to json string and convert back
     func testStructUInt8ToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : UInt8 = defaultValueForType(UInt8.self)!
         model.uInt8 = aValue
         model.uInt8Optionl = aValue
@@ -303,7 +303,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test UInt16 in struct to json string and convert back
     func testStructUInt16ToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : UInt16 = defaultValueForType(UInt16.self)!
         model.uInt16 = aValue
         model.uInt16Optionl = aValue
@@ -323,7 +323,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test UInt32 in struct to json string and convert back
     func testStructUInt32ToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : UInt32 = defaultValueForType(UInt32.self)!
         model.uInt32 = aValue
         model.uInt32Optionl = aValue
@@ -343,7 +343,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test UInt64 in struct to json string and convert back
     func testStructUInt64ToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : UInt64 = defaultValueForType(UInt64.self)!
         model.uInt64 = aValue
         model.uInt64Optionl = aValue
@@ -363,7 +363,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Float in struct to json string and convert back
     func testStructFloatToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : Float = defaultValueForType(Float.self)!
         model.float = aValue
         model.floatOptionl = aValue
@@ -383,7 +383,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Double in struct to json string and convert back
     func testStructDoubleToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : Double = defaultValueForType(Double.self)!
         model.double = aValue
         model.doubleOptionl = aValue
@@ -403,7 +403,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Bool in struct to json string and convert back
     func testStructBoolToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : Bool = defaultValueForType(Bool.self)!
         model.bool = aValue
         model.boolOptionl = aValue
@@ -423,7 +423,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test String in struct to json string and convert back
     func testStructStringToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : String = defaultValueForType(String.self)!
         model.string = aValue
         model.stringOptionl = aValue
@@ -443,7 +443,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test NSString in struct to json string and convert back
     func testStructNSStringToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : NSString = defaultValueForType(NSString.self)!
         model.nSString = aValue
         model.nSStringOptionl = aValue
@@ -463,7 +463,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test NSNumber in struct to json string and convert back
     func testStructNSNumberToJson () {
         
-        var model = BaseTypeStruct.init()
+        var model = BaseTypeStruct()
         let aValue : NSNumber = defaultValueForType(NSNumber.self)!
         model.nSNumber = aValue
         model.nSNumberOptionl = aValue
@@ -484,7 +484,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Int in class to json string and convert back
     func testClassIntToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : Int = defaultValueForType(Int.self)!
         model.int = aValue
         model.intOptionl = aValue
@@ -504,7 +504,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test UInt in class to json string and convert back
     func testClassUIntToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : UInt = defaultValueForType(UInt.self)!
         model.uInt = aValue
         model.uIntOptionl = aValue
@@ -524,7 +524,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Int8 in class to json string and convert back
     func testClassInt8ToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : Int8 = defaultValueForType(Int8.self)!
         model.int8 = aValue
         model.int8Optionl = aValue
@@ -544,7 +544,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Int16 in class to json string and convert back
     func testClassInt16ToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : Int16 = defaultValueForType(Int16.self)!
         model.int16 = aValue
         model.int16Optionl = aValue
@@ -564,7 +564,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Int32 in class to json string and convert back
     func testClassInt32ToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : Int32 = defaultValueForType(Int32.self)!
         model.int32 = aValue
         model.int32Optionl = aValue
@@ -584,7 +584,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Int64 in class to json string and convert back
     func testClassInt64ToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : Int64 = defaultValueForType(Int64.self)!
         model.int64 = aValue
         model.int64Optionl = aValue
@@ -604,7 +604,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test UInt8 in class to json string and convert back
     func testClassUInt8ToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : UInt8 = defaultValueForType(UInt8.self)!
         model.uInt8 = aValue
         model.uInt8Optionl = aValue
@@ -624,7 +624,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test UInt16 in class to json string and convert back
     func testClassUInt16ToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : UInt16 = defaultValueForType(UInt16.self)!
         model.uInt16 = aValue
         model.uInt16Optionl = aValue
@@ -644,7 +644,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test UInt32 in class to json string and convert back
     func testClassUInt32ToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : UInt32 = defaultValueForType(UInt32.self)!
         model.uInt32 = aValue
         model.uInt32Optionl = aValue
@@ -664,7 +664,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test UInt64 in class to json string and convert back
     func testClassUInt64ToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : UInt64 = defaultValueForType(UInt64.self)!
         model.uInt64 = aValue
         model.uInt64Optionl = aValue
@@ -684,7 +684,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Float in class to json string and convert back
     func testClassFloatToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : Float = defaultValueForType(Float.self)!
         model.float = aValue
         model.floatOptionl = aValue
@@ -704,7 +704,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Double in class to json string and convert back
     func testClassDoubleToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : Double = defaultValueForType(Double.self)!
         model.double = aValue
         model.doubleOptionl = aValue
@@ -724,7 +724,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test Bool in class to json string and convert back
     func testClassBoolToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : Bool = defaultValueForType(Bool.self)!
         model.bool = aValue
         model.boolOptionl = aValue
@@ -744,7 +744,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test String in class to json string and convert back
     func testClassStringToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : String = defaultValueForType(String.self)!
         model.string = aValue
         model.stringOptionl = aValue
@@ -764,7 +764,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test NSString in class to json string and convert back
     func testClassNSStringToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : NSString = defaultValueForType(NSString.self)!
         model.nSString = aValue
         model.nSStringOptionl = aValue
@@ -784,7 +784,7 @@ class _1_BaseTypeTest: XCTestCase {
     /// Test NSNumber in class to json string and convert back
     func testClassNSNumberToJson () {
         
-        let model = BaseTypeClass.init()
+        let model = BaseTypeClass()
         let aValue : NSNumber = defaultValueForType(NSNumber.self)!
         model.nSNumber = aValue
         model.nSNumberOptionl = aValue

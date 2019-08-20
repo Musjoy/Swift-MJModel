@@ -114,7 +114,7 @@ class _1_EnumTest: XCTestCase {
     /// Test EnumString in struct to json string and convert back
     func testStructEnumStringToJson () {
         
-        var model = EnumStruct.init()
+        var model = EnumStruct()
         let aValue1 : EnumString = .One
         let aValue2 : EnumString = .Two
         model.enumString = aValue1
@@ -135,7 +135,7 @@ class _1_EnumTest: XCTestCase {
     /// Test EnumInt in struct to json string and convert back
     func testStructEnumIntToJson () {
         
-        var model = EnumStruct.init()
+        var model = EnumStruct()
         let aValue1 : EnumInt = .One
         let aValue2 : EnumInt = .Two
         model.enumInt = aValue1
@@ -156,7 +156,7 @@ class _1_EnumTest: XCTestCase {
     /// Test EnumFloat in struct to json string and convert back
     func testStructEnumFloatToJson () {
         
-        var model = EnumStruct.init()
+        var model = EnumStruct()
         let aValue1 : EnumFloat = .One
         let aValue2 : EnumFloat = .Two
         model.enumFloat = aValue1
@@ -177,7 +177,7 @@ class _1_EnumTest: XCTestCase {
     /// Test EnumDouble in struct to json string and convert back
     func testStructEnumDoubleToJson () {
         
-        var model = EnumStruct.init()
+        var model = EnumStruct()
         let aValue1 : EnumDouble = .One
         let aValue2 : EnumDouble = .Two
         model.enumDouble = aValue1
@@ -198,7 +198,7 @@ class _1_EnumTest: XCTestCase {
     /// Test EnumRaw in struct to json string and convert back
     func testStructEnumRawToJson () {
         
-        var model = EnumStruct.init()
+        var model = EnumStruct()
         let aValue1 : EnumRaw = .One
         let aValue2 : EnumRaw = .Two
         model.enumRaw = aValue1
@@ -219,7 +219,7 @@ class _1_EnumTest: XCTestCase {
     /// Test EnumString in class to json string and convert back
     func testClassEnumStringToJson () {
         
-        let model = EnumClass.init()
+        let model = EnumClass()
         let aValue1 : EnumString = .One
         let aValue2 : EnumString = .Two
         model.enumString = aValue1
@@ -240,7 +240,7 @@ class _1_EnumTest: XCTestCase {
     /// Test EnumInt in class to json string and convert back
     func testClassEnumIntToJson () {
         
-        let model = EnumClass.init()
+        let model = EnumClass()
         let aValue1 : EnumInt = .One
         let aValue2 : EnumInt = .Two
         model.enumInt = aValue1
@@ -261,7 +261,7 @@ class _1_EnumTest: XCTestCase {
     /// Test EnumFloat in class to json string and convert back
     func testClassEnumFloatToJson () {
         
-        let model = EnumClass.init()
+        let model = EnumClass()
         let aValue1 : EnumFloat = .One
         let aValue2 : EnumFloat = .Two
         model.enumFloat = aValue1
@@ -282,7 +282,7 @@ class _1_EnumTest: XCTestCase {
     /// Test EnumDouble in class to json string and convert back
     func testClassEnumDoubleToJson () {
         
-        let model = EnumClass.init()
+        let model = EnumClass()
         let aValue1 : EnumDouble = .One
         let aValue2 : EnumDouble = .Two
         model.enumDouble = aValue1
@@ -303,7 +303,7 @@ class _1_EnumTest: XCTestCase {
     /// Test EnumRaw in class to json string and convert back
     func testClassEnumRawToJson () {
         
-        let model = EnumClass.init()
+        let model = EnumClass()
         let aValue1 : EnumRaw = .One
         let aValue2 : EnumRaw = .Two
         model.enumRaw = aValue1

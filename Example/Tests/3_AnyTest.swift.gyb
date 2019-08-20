@@ -56,7 +56,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in ${a_class_type} to json string and convert back
     func test${a_class_type[:1].upper() + a_class_type[1:]}Any${a_type}ToJson () {
         
-        ${'let' if (a_class_type=='class') else 'var'} model = Any${a_class_type[:1].upper() + a_class_type[1:]}.init()
+        ${'let' if (a_class_type=='class') else 'var'} model = Any${a_class_type[:1].upper() + a_class_type[1:]}()
         let aValue1 : ${a_type} = defaultValueForType(${a_type}.self)!
         let aValue2 : ${a_type} = empertyValueForType(${a_type}.self)!
         model.any = aValue1

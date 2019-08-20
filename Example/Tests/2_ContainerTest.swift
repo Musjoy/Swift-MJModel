@@ -178,7 +178,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [Int] in struct to json string and convert back
     func testStructArrIntsToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [Int] = [defaultValueForType(Int.self)!, empertyValueForType(Int.self)!]
         model.arrInts = aValue
         model.arrIntsOptionl = aValue
@@ -199,7 +199,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [Float] in struct to json string and convert back
     func testStructArrFloatsToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [Float] = [defaultValueForType(Float.self)!, empertyValueForType(Float.self)!]
         model.arrFloats = aValue
         model.arrFloatsOptionl = aValue
@@ -220,7 +220,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [Double] in struct to json string and convert back
     func testStructArrDoublesToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [Double] = [defaultValueForType(Double.self)!, empertyValueForType(Double.self)!]
         model.arrDoubles = aValue
         model.arrDoublesOptionl = aValue
@@ -241,7 +241,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [Bool] in struct to json string and convert back
     func testStructArrBoolsToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [Bool] = [defaultValueForType(Bool.self)!, empertyValueForType(Bool.self)!]
         model.arrBools = aValue
         model.arrBoolsOptionl = aValue
@@ -262,7 +262,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String] in struct to json string and convert back
     func testStructArrStringsToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [String] = [defaultValueForType(String.self)!, empertyValueForType(String.self)!]
         model.arrStrings = aValue
         model.arrStringsOptionl = aValue
@@ -283,7 +283,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [NSString] in struct to json string and convert back
     func testStructArrNSStringsToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [NSString] = [defaultValueForType(NSString.self)!, empertyValueForType(NSString.self)!]
         model.arrNSStrings = aValue
         model.arrNSStringsOptionl = aValue
@@ -304,7 +304,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [NSNumber] in struct to json string and convert back
     func testStructArrNSNumbersToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [NSNumber] = [defaultValueForType(NSNumber.self)!, empertyValueForType(NSNumber.self)!]
         model.arrNSNumbers = aValue
         model.arrNSNumbersOptionl = aValue
@@ -325,7 +325,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [Any] in struct to json string and convert back
     func testStructArrAnysToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [Any] = [defaultValueForType(Any.self)!, empertyValueForType(Any.self)!]
         model.arrAnys = aValue
         model.arrAnysOptionl = aValue
@@ -351,7 +351,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:Int] in struct to json string and convert back
     func testStructDicIntsToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [String:Int] = ["key1":defaultValueForType(Int.self)!, "key2":empertyValueForType(Int.self)!]
         model.dicInts = aValue
         model.dicIntsOptionl = aValue
@@ -372,7 +372,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:Float] in struct to json string and convert back
     func testStructDicFloatsToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [String:Float] = ["key1":defaultValueForType(Float.self)!, "key2":empertyValueForType(Float.self)!]
         model.dicFloats = aValue
         model.dicFloatsOptionl = aValue
@@ -393,7 +393,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:Double] in struct to json string and convert back
     func testStructDicDoublesToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [String:Double] = ["key1":defaultValueForType(Double.self)!, "key2":empertyValueForType(Double.self)!]
         model.dicDoubles = aValue
         model.dicDoublesOptionl = aValue
@@ -414,7 +414,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:Bool] in struct to json string and convert back
     func testStructDicBoolsToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [String:Bool] = ["key1":defaultValueForType(Bool.self)!, "key2":empertyValueForType(Bool.self)!]
         model.dicBools = aValue
         model.dicBoolsOptionl = aValue
@@ -435,7 +435,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:String] in struct to json string and convert back
     func testStructDicStringsToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [String:String] = ["key1":defaultValueForType(String.self)!, "key2":empertyValueForType(String.self)!]
         model.dicStrings = aValue
         model.dicStringsOptionl = aValue
@@ -456,7 +456,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:NSString] in struct to json string and convert back
     func testStructDicNSStringsToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [String:NSString] = ["key1":defaultValueForType(NSString.self)!, "key2":empertyValueForType(NSString.self)!]
         model.dicNSStrings = aValue
         model.dicNSStringsOptionl = aValue
@@ -477,7 +477,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:NSNumber] in struct to json string and convert back
     func testStructDicNSNumbersToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [String:NSNumber] = ["key1":defaultValueForType(NSNumber.self)!, "key2":empertyValueForType(NSNumber.self)!]
         model.dicNSNumbers = aValue
         model.dicNSNumbersOptionl = aValue
@@ -498,7 +498,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:Any] in struct to json string and convert back
     func testStructDicAnysToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : [String:Any] = ["key1":defaultValueForType(Any.self)!, "key2":empertyValueForType(Any.self)!]
         model.dicAnys = aValue
         model.dicAnysOptionl = aValue
@@ -524,7 +524,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test NSArray in struct to json string and convert back
     func testStructNSArrayToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : NSArray = [defaultValueForType(String.self)!, empertyValueForType(String.self)!]
         model.nsArrStrings = aValue
         model.nsArrStringsOptionl = aValue
@@ -545,7 +545,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test NSDictionary in struct to json string and convert back
     func testStructNSDictionaryToJson () {
         
-        var model = ContainerStruct.init()
+        var model = ContainerStruct()
         let aValue : NSDictionary = ["key1":defaultValueForType(String.self)!, "key2":empertyValueForType(String.self)!]
         model.nsDicStrings = aValue
         model.nsDicStringsOptionl = aValue
@@ -567,7 +567,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [Int] in class to json string and convert back
     func testClassArrIntsToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [Int] = [defaultValueForType(Int.self)!, empertyValueForType(Int.self)!]
         model.arrInts = aValue
         model.arrIntsOptionl = aValue
@@ -588,7 +588,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [Float] in class to json string and convert back
     func testClassArrFloatsToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [Float] = [defaultValueForType(Float.self)!, empertyValueForType(Float.self)!]
         model.arrFloats = aValue
         model.arrFloatsOptionl = aValue
@@ -609,7 +609,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [Double] in class to json string and convert back
     func testClassArrDoublesToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [Double] = [defaultValueForType(Double.self)!, empertyValueForType(Double.self)!]
         model.arrDoubles = aValue
         model.arrDoublesOptionl = aValue
@@ -630,7 +630,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [Bool] in class to json string and convert back
     func testClassArrBoolsToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [Bool] = [defaultValueForType(Bool.self)!, empertyValueForType(Bool.self)!]
         model.arrBools = aValue
         model.arrBoolsOptionl = aValue
@@ -651,7 +651,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String] in class to json string and convert back
     func testClassArrStringsToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [String] = [defaultValueForType(String.self)!, empertyValueForType(String.self)!]
         model.arrStrings = aValue
         model.arrStringsOptionl = aValue
@@ -672,7 +672,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [NSString] in class to json string and convert back
     func testClassArrNSStringsToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [NSString] = [defaultValueForType(NSString.self)!, empertyValueForType(NSString.self)!]
         model.arrNSStrings = aValue
         model.arrNSStringsOptionl = aValue
@@ -693,7 +693,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [NSNumber] in class to json string and convert back
     func testClassArrNSNumbersToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [NSNumber] = [defaultValueForType(NSNumber.self)!, empertyValueForType(NSNumber.self)!]
         model.arrNSNumbers = aValue
         model.arrNSNumbersOptionl = aValue
@@ -714,7 +714,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [Any] in class to json string and convert back
     func testClassArrAnysToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [Any] = [defaultValueForType(Any.self)!, empertyValueForType(Any.self)!]
         model.arrAnys = aValue
         model.arrAnysOptionl = aValue
@@ -740,7 +740,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:Int] in class to json string and convert back
     func testClassDicIntsToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [String:Int] = ["key1":defaultValueForType(Int.self)!, "key2":empertyValueForType(Int.self)!]
         model.dicInts = aValue
         model.dicIntsOptionl = aValue
@@ -761,7 +761,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:Float] in class to json string and convert back
     func testClassDicFloatsToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [String:Float] = ["key1":defaultValueForType(Float.self)!, "key2":empertyValueForType(Float.self)!]
         model.dicFloats = aValue
         model.dicFloatsOptionl = aValue
@@ -782,7 +782,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:Double] in class to json string and convert back
     func testClassDicDoublesToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [String:Double] = ["key1":defaultValueForType(Double.self)!, "key2":empertyValueForType(Double.self)!]
         model.dicDoubles = aValue
         model.dicDoublesOptionl = aValue
@@ -803,7 +803,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:Bool] in class to json string and convert back
     func testClassDicBoolsToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [String:Bool] = ["key1":defaultValueForType(Bool.self)!, "key2":empertyValueForType(Bool.self)!]
         model.dicBools = aValue
         model.dicBoolsOptionl = aValue
@@ -824,7 +824,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:String] in class to json string and convert back
     func testClassDicStringsToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [String:String] = ["key1":defaultValueForType(String.self)!, "key2":empertyValueForType(String.self)!]
         model.dicStrings = aValue
         model.dicStringsOptionl = aValue
@@ -845,7 +845,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:NSString] in class to json string and convert back
     func testClassDicNSStringsToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [String:NSString] = ["key1":defaultValueForType(NSString.self)!, "key2":empertyValueForType(NSString.self)!]
         model.dicNSStrings = aValue
         model.dicNSStringsOptionl = aValue
@@ -866,7 +866,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:NSNumber] in class to json string and convert back
     func testClassDicNSNumbersToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [String:NSNumber] = ["key1":defaultValueForType(NSNumber.self)!, "key2":empertyValueForType(NSNumber.self)!]
         model.dicNSNumbers = aValue
         model.dicNSNumbersOptionl = aValue
@@ -887,7 +887,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test [String:Any] in class to json string and convert back
     func testClassDicAnysToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : [String:Any] = ["key1":defaultValueForType(Any.self)!, "key2":empertyValueForType(Any.self)!]
         model.dicAnys = aValue
         model.dicAnysOptionl = aValue
@@ -913,7 +913,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test NSArray in class to json string and convert back
     func testClassNSArrayToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : NSArray = [defaultValueForType(String.self)!, empertyValueForType(String.self)!]
         model.nsArrStrings = aValue
         model.nsArrStringsOptionl = aValue
@@ -934,7 +934,7 @@ class _2_ContainerTest: XCTestCase {
     /// Test NSDictionary in class to json string and convert back
     func testClassNSDictionaryToJson () {
         
-        let model = ContainerClass.init()
+        let model = ContainerClass()
         let aValue : NSDictionary = ["key1":defaultValueForType(String.self)!, "key2":empertyValueForType(String.self)!]
         model.nsDicStrings = aValue
         model.nsDicStringsOptionl = aValue

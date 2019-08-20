@@ -45,7 +45,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyIntToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : Int = defaultValueForType(Int.self)!
         let aValue2 : Int = empertyValueForType(Int.self)!
         model.any = aValue1
@@ -65,7 +65,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyUIntToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : UInt = defaultValueForType(UInt.self)!
         let aValue2 : UInt = empertyValueForType(UInt.self)!
         model.any = aValue1
@@ -85,7 +85,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyInt8ToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : Int8 = defaultValueForType(Int8.self)!
         let aValue2 : Int8 = empertyValueForType(Int8.self)!
         model.any = aValue1
@@ -105,7 +105,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyInt16ToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : Int16 = defaultValueForType(Int16.self)!
         let aValue2 : Int16 = empertyValueForType(Int16.self)!
         model.any = aValue1
@@ -125,7 +125,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyInt32ToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : Int32 = defaultValueForType(Int32.self)!
         let aValue2 : Int32 = empertyValueForType(Int32.self)!
         model.any = aValue1
@@ -145,7 +145,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyInt64ToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : Int64 = defaultValueForType(Int64.self)!
         let aValue2 : Int64 = empertyValueForType(Int64.self)!
         model.any = aValue1
@@ -165,7 +165,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyUInt8ToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : UInt8 = defaultValueForType(UInt8.self)!
         let aValue2 : UInt8 = empertyValueForType(UInt8.self)!
         model.any = aValue1
@@ -185,7 +185,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyUInt16ToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : UInt16 = defaultValueForType(UInt16.self)!
         let aValue2 : UInt16 = empertyValueForType(UInt16.self)!
         model.any = aValue1
@@ -205,7 +205,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyUInt32ToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : UInt32 = defaultValueForType(UInt32.self)!
         let aValue2 : UInt32 = empertyValueForType(UInt32.self)!
         model.any = aValue1
@@ -225,7 +225,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyUInt64ToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : UInt64 = defaultValueForType(UInt64.self)!
         let aValue2 : UInt64 = empertyValueForType(UInt64.self)!
         model.any = aValue1
@@ -245,7 +245,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyFloatToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : Float = defaultValueForType(Float.self)!
         let aValue2 : Float = empertyValueForType(Float.self)!
         model.any = aValue1
@@ -265,7 +265,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyDoubleToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : Double = defaultValueForType(Double.self)!
         let aValue2 : Double = empertyValueForType(Double.self)!
         model.any = aValue1
@@ -285,7 +285,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyBoolToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : Bool = defaultValueForType(Bool.self)!
         let aValue2 : Bool = empertyValueForType(Bool.self)!
         model.any = aValue1
@@ -305,7 +305,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyStringToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : String = defaultValueForType(String.self)!
         let aValue2 : String = empertyValueForType(String.self)!
         model.any = aValue1
@@ -325,7 +325,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyNSStringToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : NSString = defaultValueForType(NSString.self)!
         let aValue2 : NSString = empertyValueForType(NSString.self)!
         model.any = aValue1
@@ -345,7 +345,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in struct to json string and convert back
     func testStructAnyNSNumberToJson () {
         
-        var model = AnyStruct.init()
+        var model = AnyStruct()
         let aValue1 : NSNumber = defaultValueForType(NSNumber.self)!
         let aValue2 : NSNumber = empertyValueForType(NSNumber.self)!
         model.any = aValue1
@@ -365,7 +365,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyIntToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : Int = defaultValueForType(Int.self)!
         let aValue2 : Int = empertyValueForType(Int.self)!
         model.any = aValue1
@@ -385,7 +385,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyUIntToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : UInt = defaultValueForType(UInt.self)!
         let aValue2 : UInt = empertyValueForType(UInt.self)!
         model.any = aValue1
@@ -405,7 +405,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyInt8ToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : Int8 = defaultValueForType(Int8.self)!
         let aValue2 : Int8 = empertyValueForType(Int8.self)!
         model.any = aValue1
@@ -425,7 +425,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyInt16ToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : Int16 = defaultValueForType(Int16.self)!
         let aValue2 : Int16 = empertyValueForType(Int16.self)!
         model.any = aValue1
@@ -445,7 +445,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyInt32ToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : Int32 = defaultValueForType(Int32.self)!
         let aValue2 : Int32 = empertyValueForType(Int32.self)!
         model.any = aValue1
@@ -465,7 +465,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyInt64ToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : Int64 = defaultValueForType(Int64.self)!
         let aValue2 : Int64 = empertyValueForType(Int64.self)!
         model.any = aValue1
@@ -485,7 +485,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyUInt8ToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : UInt8 = defaultValueForType(UInt8.self)!
         let aValue2 : UInt8 = empertyValueForType(UInt8.self)!
         model.any = aValue1
@@ -505,7 +505,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyUInt16ToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : UInt16 = defaultValueForType(UInt16.self)!
         let aValue2 : UInt16 = empertyValueForType(UInt16.self)!
         model.any = aValue1
@@ -525,7 +525,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyUInt32ToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : UInt32 = defaultValueForType(UInt32.self)!
         let aValue2 : UInt32 = empertyValueForType(UInt32.self)!
         model.any = aValue1
@@ -545,7 +545,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyUInt64ToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : UInt64 = defaultValueForType(UInt64.self)!
         let aValue2 : UInt64 = empertyValueForType(UInt64.self)!
         model.any = aValue1
@@ -565,7 +565,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyFloatToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : Float = defaultValueForType(Float.self)!
         let aValue2 : Float = empertyValueForType(Float.self)!
         model.any = aValue1
@@ -585,7 +585,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyDoubleToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : Double = defaultValueForType(Double.self)!
         let aValue2 : Double = empertyValueForType(Double.self)!
         model.any = aValue1
@@ -605,7 +605,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyBoolToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : Bool = defaultValueForType(Bool.self)!
         let aValue2 : Bool = empertyValueForType(Bool.self)!
         model.any = aValue1
@@ -625,7 +625,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyStringToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : String = defaultValueForType(String.self)!
         let aValue2 : String = empertyValueForType(String.self)!
         model.any = aValue1
@@ -645,7 +645,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyNSStringToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : NSString = defaultValueForType(NSString.self)!
         let aValue2 : NSString = empertyValueForType(NSString.self)!
         model.any = aValue1
@@ -665,7 +665,7 @@ class _3_AnyTest: XCTestCase {
     /// Test Any in class to json string and convert back
     func testClassAnyNSNumberToJson () {
         
-        let model = AnyClass.init()
+        let model = AnyClass()
         let aValue1 : NSNumber = defaultValueForType(NSNumber.self)!
         let aValue2 : NSNumber = empertyValueForType(NSNumber.self)!
         model.any = aValue1
