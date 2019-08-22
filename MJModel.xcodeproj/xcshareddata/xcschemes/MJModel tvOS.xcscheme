@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "34FA96EB230D35AE00D5877C"
+               BlueprintIdentifier = "34FA973E230D3A4E00D5877C"
                BuildableName = "MJModel.framework"
-               BlueprintName = "MJModel macOS"
+               BlueprintName = "MJModel tvOS"
                ReferencedContainer = "container:MJModel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "34FA96F3230D35AE00D5877C"
-               BuildableName = "MJModel macOSTests.xctest"
-               BlueprintName = "MJModel macOSTests"
+               BlueprintIdentifier = "34FA9746230D3A4E00D5877C"
+               BuildableName = "MJModel tvOSTests.xctest"
+               BlueprintName = "MJModel tvOSTests"
                ReferencedContainer = "container:MJModel.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -61,9 +61,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "34FA96EB230D35AE00D5877C"
+            BlueprintIdentifier = "34FA973E230D3A4E00D5877C"
             BuildableName = "MJModel.framework"
-            BlueprintName = "MJModel macOS"
+            BlueprintName = "MJModel tvOS"
             ReferencedContainer = "container:MJModel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
