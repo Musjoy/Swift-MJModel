@@ -1,5 +1,6 @@
 import PackageDescription
 
 let package = Package(
-    name: "MJModel"
+    name: "MJModel",
+    swiftLanguageVersions: [.v5]
 )

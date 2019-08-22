@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'MJModel'
   s.version          = '0.1.0'
-  s.summary          = 'MJModel is a framework which allows you to easily convert model to json string or json string to model.'
+  s.summary          = 'MJModel is a framework in swift which allows you to easily convert model to json string or json string to model.'
 
   s.homepage         = 'https://github.com/Musjoy/Swift-MJModel'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -17,6 +17,9 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/Musjoy/Swift-MJModel.git', :tag => s.version, :submodules => true }
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.9'
+  s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target = '9.0'
 
   s.default_subspec = 'Core'
   
