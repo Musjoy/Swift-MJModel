@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MJModel'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'MJModel is a framework in swift which allows you to easily convert model to json string or json string to model.'
 
   s.homepage         = 'https://github.com/Musjoy/Swift-MJModel'
