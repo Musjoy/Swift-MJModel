@@ -6,10 +6,13 @@ MJModel supports class and struct, and no need to inherit from NSObject. By repl
 
 MJModel is defined as a protocol, so you can use it simply just like protocol. Only one extension of the existed model can do the trick. 
 
-[![CI Status](https://img.shields.io/travis/raymond-hl/MJModel.svg?style=flat)](https://travis-ci.org/raymond-hl/MJModel)
+[![CI Status](https://img.shields.io/travis/Musjoy/Swift-MJModel.svg?style=flat)](https://travis-ci.org/Musjoy/Swift-MJModel)
+[![codecov](https://codecov.io/gh/Musjoy/Swift-MJModel/branch/master/graph/badge.svg)](https://codecov.io/gh/Musjoy/Swift-MJModel)
 [![Version](https://img.shields.io/cocoapods/v/MJModel.svg?style=flat)](https://cocoapods.org/pods/MJModel)
 [![License](https://img.shields.io/cocoapods/l/MJModel.svg?style=flat)](https://cocoapods.org/pods/MJModel)
 [![Platform](https://img.shields.io/cocoapods/p/MJModel.svg?style=flat)](https://cocoapods.org/pods/MJModel)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Gitter](https://badges.gitter.im/Musjoy/DBModel.svg)](https://gitter.im/Musjoy/DBModel?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## Requirements
 
@@ -33,7 +36,9 @@ github "Musjoy/Swift-MJModel" "master"
 ### [Swift Package Manager](https://github.com/apple/swift-package-manager) :
 Add the following to your Package.swift file's dependencies:
 ```swift
-.package(url: "https://github.com/Musjoy/Swift-MJModel.git", from: "0.1.0"),
+dependencies: [
+    .package(url: "https://github.com/Musjoy/Swift-MJModel.git", from: "0.1.0"),
+]
 ```
 
 ## Usage

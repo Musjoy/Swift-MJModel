@@ -8,6 +8,10 @@ branches:
   only:
     - master
 
+before_install:
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
+
 env:
   global:
     - CODECOV_TOKEN="2b79fa30-0b74-418c-8ae7-16cb24c6ac27"
@@ -51,3 +55,17 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+before_deploy:
+  - carthage build --no-skip-current
+  - carthage archive $FRAMEWORK_NAME
+
+deploy:
+  provider: releases
+  api_key:
+    secure: 04TJpOAcyXUw6Aw5hKQ9oSH/POXObu1WLxwdkHxnvcMw+k9+sjLMvVgyiDCSOthcivoTIxa8yXTb0rKXYq+51b5u46C7aV5CHT2RRXNFRJakvVYV5Zo4z9DxW4LqKlwyc+CfoNBnFywHUHE3+kE8GRQn5a3SX+tWciJkTArc6h2mFEGYZeRR9ryo7PxW/rz7AqsHyzks8ScVes4xk6awxMAjnrWuu5t8/bRKWSq/phuRlGXwkYFVmwuC8vXx0rsj7HMtYG/cHa3l0orBnzfnGnKOQIjjyAjG5s0VxofSjCLS8K5sV4JOqlseDlRK95IqB+kSnGm0hXjYDhumMUUdB1R0b1hBoKoyL0YJ0tyl5cHb8gGo4BwtUs1+UXiImnR2reHe8qViziXYoxgdD+iD3Um/2oKzcuqXBFPCZ649RrtTTbKb0H2tW2gThFWlTTASgngNR+SjClpgWSAfum+FYafzIDKSwMRKIcBlvqPI+Vm8jd1sNYT6pmT7PYsb4g/OkvL3mgWCDOv9qhrdkCN92hCVVAGZBVcRmkfJt+6EV77GVv1VjlWWBQ60ngbYsySxpXlv76gWNxlo+rmz9NpIn6XUL5Ch0VyfAFT7MHZ+VJ5BTs8+T0jVJ0Mm6LfvFzEF3aW+5pO9Mc568zObl8Yovt6HfbNE2iMLboPM0nnZHBo=
+  file: "MJModel.framework.zip"
+  skip_cleanup: true
+  on:
+    repo: Musjoy/Swift-MJModel
+    tags: true
